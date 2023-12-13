@@ -2,7 +2,7 @@
 --  DDL for Package Body GW_PK_LIB
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."GW_PK_LIB" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "GW_PK_LIB" is
 
   -- Ham lay gia tri cua file dien theo partnum
   FUNCTION GetFieldValue(pSWFieldTag  varchar2,

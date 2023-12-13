@@ -2,7 +2,7 @@
 --  DDL for Package Body PKG_IB_SYNC_TMP
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."PKG_IB_SYNC_TMP" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "PKG_IB_SYNC_TMP" is
 
   Procedure Get_IB_RM IS
     vErr varchar2(900);

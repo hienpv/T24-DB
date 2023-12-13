@@ -2,7 +2,7 @@
 --  DDL for Package PKG_SYNC_LNAPPL_LNAPPF
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."PKG_SYNC_LNAPPL_LNAPPF" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "PKG_SYNC_LNAPPL_LNAPPF" 
   IS
 /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

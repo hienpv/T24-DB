@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_CIF_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_CIF_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_CIF_SYNC" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_ACCOUNT_ETL_SYNC_TEST
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_ACCOUNT_ETL_SYNC_TEST" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_ACCOUNT_ETL_SYNC_TEST" 
 IS 
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM 

@@ -2,7 +2,7 @@
 --  DDL for Package SYNC_WAY4_DATA
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."SYNC_WAY4_DATA" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "SYNC_WAY4_DATA" is
 
   PROCEDURE proc_acnt_contract_sync;
   PROCEDURE proc_client_sync;

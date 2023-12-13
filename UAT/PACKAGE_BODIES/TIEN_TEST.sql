@@ -2,7 +2,7 @@
 --  DDL for Package Body TIEN_TEST
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."TIEN_TEST" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "TIEN_TEST" IS
 
   /*
   Dong bo contract

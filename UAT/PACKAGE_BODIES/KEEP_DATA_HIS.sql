@@ -2,7 +2,7 @@
 --  DDL for Package Body KEEP_DATA_HIS
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."KEEP_DATA_HIS" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "KEEP_DATA_HIS" AS
 
 
     function fn_partition_is_earlier(i_part_tab_name varchar2, i_partition_position number, i_ref_date in date) 

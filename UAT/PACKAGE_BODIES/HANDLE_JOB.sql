@@ -2,7 +2,7 @@
 --  DDL for Package Body HANDLE_JOB
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."HANDLE_JOB" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "HANDLE_JOB" AS
 
   PROCEDURE check_job AS
   v_last_start_date date;

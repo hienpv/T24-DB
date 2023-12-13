@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_BALANCE_PERIOD_SYNC_TEMP
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_BALANCE_PERIOD_SYNC_TEMP" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_BALANCE_PERIOD_SYNC_TEMP" 
 IS
 
     --pkgctx    plog.log_ctx;

@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_DATA_LATER_PROCESS
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_DATA_LATER_PROCESS" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_DATA_LATER_PROCESS" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : ODS SYSTEM

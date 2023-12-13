@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_GWSERVICE_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_GWSERVICE_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_GWSERVICE_SYNC" 
 /* Formatted on 05-Dec-2014 17:40:49 (QP5 v5.160) */
 IS
 /*----------------------------------------------------------------------------------------------------

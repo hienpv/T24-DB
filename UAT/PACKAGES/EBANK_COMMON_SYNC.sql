@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_COMMON_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."EBANK_COMMON_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_COMMON_SYNC" IS
 
   PROCEDURE proc_scan_job_sync;
 

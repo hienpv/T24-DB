@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_TRANSACTION_SYNC_hienpv5
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_TRANSACTION_SYNC_hienpv5" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_TRANSACTION_SYNC_hienpv5" 
 IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

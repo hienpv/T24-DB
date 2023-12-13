@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_TRANSACTION_SYNC_BUG
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_TRANSACTION_SYNC_BUG" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_TRANSACTION_SYNC_BUG" 
 IS 
   
     PROCEDURE  pr_tmtran_sync (dm_operation_type in CHAR,

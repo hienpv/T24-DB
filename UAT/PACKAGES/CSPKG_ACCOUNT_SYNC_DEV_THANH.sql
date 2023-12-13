@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_ACCOUNT_SYNC_DEV_THANH
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_ACCOUNT_SYNC_DEV_THANH" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_ACCOUNT_SYNC_DEV_THANH" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM

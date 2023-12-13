@@ -2,7 +2,7 @@
 --  DDL for Package DTYPE
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."DTYPE" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "DTYPE" is
 
 /**
 * Project:         W4Kernel

@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_ERRNUMS
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_ERRNUMS" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_ERRNUMS" 
 /* Formatted on 8/4/2012 10:27:56 AM (QP5 v5.126) */
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM

@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_GWSERVICE_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_GWSERVICE_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_GWSERVICE_SYNC" 
 IS
 /*----------------------------------------------------------------------------------------------------
     ** Module   : ODS SYSTEM

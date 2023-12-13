@@ -2,7 +2,7 @@
 --  DDL for Package Body CORE_DATA_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CORE_DATA_SYNC" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CORE_DATA_SYNC" AS
 
   PROCEDURE ddrbal_sync AS
   

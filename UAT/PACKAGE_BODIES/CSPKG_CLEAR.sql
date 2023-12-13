@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_CLEAR
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_CLEAR" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_CLEAR" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : ODS SYSTEM

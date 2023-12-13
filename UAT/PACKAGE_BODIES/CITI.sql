@@ -2,7 +2,7 @@
 --  DDL for Package Body CITI
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CITI" as
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CITI" as
   function p_string return varchar2 is
   begin
     return 'Greating!';

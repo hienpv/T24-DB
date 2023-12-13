@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_ACCOUNT_SYNC_247
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_ACCOUNT_SYNC_247" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_ACCOUNT_SYNC_247" AS 
 
   /* 
     author: QuangBD3

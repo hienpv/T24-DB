@@ -2,7 +2,7 @@
 --  DDL for Package Body PKG_SYNC_LNAPPL_LNAPPF
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."PKG_SYNC_LNAPPL_LNAPPF" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "PKG_SYNC_LNAPPL_LNAPPF" AS
 
   PROCEDURE sync_lnappl AS
      v_result varchar2(20);

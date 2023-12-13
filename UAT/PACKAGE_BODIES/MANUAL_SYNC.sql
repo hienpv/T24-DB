@@ -2,7 +2,7 @@
 --  DDL for Package Body MANUAL_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."MANUAL_SYNC" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MANUAL_SYNC" AS
 
   PROCEDURE merge_manual AS
   BEGIN

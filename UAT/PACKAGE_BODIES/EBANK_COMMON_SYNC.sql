@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_COMMON_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."EBANK_COMMON_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_COMMON_SYNC" 
 /* Formatted on 12/16/2011 5:05:58 PM (QP5 v5.126) */
  IS
   PROCEDURE proc_update_status_job_sync

@@ -2,7 +2,7 @@
 --  DDL for Package PK_BILLING_TOPUP_AUTO
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."PK_BILLING_TOPUP_AUTO" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "PK_BILLING_TOPUP_AUTO" AS 
 
   /* TODO enter package declarations (types, exceptions, methods etc) here */ 
   PROCEDURE HANDLE_BILLING_TOPUP_AUTO

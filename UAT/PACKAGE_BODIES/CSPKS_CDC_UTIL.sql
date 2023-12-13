@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKS_CDC_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKS_CDC_UTIL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKS_CDC_UTIL" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM

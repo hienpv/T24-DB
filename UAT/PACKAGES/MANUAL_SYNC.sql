@@ -2,7 +2,7 @@
 --  DDL for Package MANUAL_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."MANUAL_SYNC" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MANUAL_SYNC" AS 
 
   /* TODO enter package declarations (types, exceptions, methods etc) here */ 
   

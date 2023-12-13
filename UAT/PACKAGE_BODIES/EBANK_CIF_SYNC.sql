@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_CIF_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."EBANK_CIF_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_CIF_SYNC" IS
 
   v_start_date DATE;
 

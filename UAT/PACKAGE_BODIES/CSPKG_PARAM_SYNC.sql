@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_PARAM_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_PARAM_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_PARAM_SYNC" 
 IS
 /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

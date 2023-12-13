@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_BENIFIT_REFRESH
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_BENIFIT_REFRESH" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_BENIFIT_REFRESH" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

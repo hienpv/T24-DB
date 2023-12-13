@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_BENIFIT_REFRESH_BATCH
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_BENIFIT_REFRESH_BATCH" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_BENIFIT_REFRESH_BATCH" AS
 	
     PROCEDURE pr_benifit_refresh_core_batch
     IS

@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_BENIFIT_REFRESH_247
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_BENIFIT_REFRESH_247" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_BENIFIT_REFRESH_247" 
   IS
     PROCEDURE pr_benifit_internal_txn;
 

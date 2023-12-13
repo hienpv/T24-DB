@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_DWH_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."EBANK_DWH_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_DWH_SYNC" IS
   PROCEDURE proc_ddft_transaction ;
 PROCEDURE proc_crtb_tmtran_ol;
  PROCEDURE proc_ddft_transaction_by_date  (p_date DATE);

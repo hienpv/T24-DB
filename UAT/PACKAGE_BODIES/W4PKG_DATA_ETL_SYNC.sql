@@ -2,7 +2,7 @@
 --  DDL for Package Body W4PKG_DATA_ETL_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."W4PKG_DATA_ETL_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "W4PKG_DATA_ETL_SYNC" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : ODS SYSTEM

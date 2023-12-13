@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_CLEAR
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_CLEAR" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_CLEAR" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

@@ -2,7 +2,7 @@
 --  DDL for Package TIEN_TEST
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."TIEN_TEST" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "TIEN_TEST" is
 
   PROCEDURE proc_acnt_contract_sync;
   PROCEDURE proc_client_sync;

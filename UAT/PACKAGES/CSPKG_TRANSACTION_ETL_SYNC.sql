@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_TRANSACTION_ETL_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_TRANSACTION_ETL_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_TRANSACTION_ETL_SYNC" 
 IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

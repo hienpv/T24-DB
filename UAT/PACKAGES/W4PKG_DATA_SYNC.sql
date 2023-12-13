@@ -2,7 +2,7 @@
 --  DDL for Package W4PKG_DATA_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."W4PKG_DATA_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "W4PKG_DATA_SYNC" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : ODS SYSTEM

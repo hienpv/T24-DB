@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_CFACCT_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "T24IBS"."CSPKG_CFACCT_SYNC" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_CFACCT_SYNC" AS
 
   PROCEDURE pr_cfacct_sync (dm_operation_type in CHAR,
                               orchestrate_CFACID in varchar, 

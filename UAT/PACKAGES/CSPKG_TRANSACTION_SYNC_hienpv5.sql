@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_TRANSACTION_SYNC_hienpv5
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "T24IBS"."CSPKG_TRANSACTION_SYNC_hienpv5" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_TRANSACTION_SYNC_hienpv5" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM
