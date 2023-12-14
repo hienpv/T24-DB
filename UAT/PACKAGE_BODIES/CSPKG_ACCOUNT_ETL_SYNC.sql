@@ -18,7 +18,7 @@ IS
  **  LocTX      31/10/2014    Created
  ** (c) 2014 by Financial Software Solutions. JSC.
  ----------------------------------------------------------------------------------------------------*/
-    --pkgctx    plog.log_ctx;
+    pkgctx    plog.log_ctx;
     logrow    tlogdebug%ROWTYPE;
 
  /*----------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ IS
         l_error_desc VARCHAR2(300);
 
     BEGIN
-        --plog.setbeginsection (pkgctx, 'pr_lnmast_sync');
+        plog.setbeginsection (pkgctx, 'pr_lnmast_sync');
 
         l_max_cif := 0;
 
@@ -370,14 +370,14 @@ IS
 
 --        COMMIT;
 
-        --plog.setendsection( pkgctx, 'pr_lnmast_sync' );
+        plog.setendsection( pkgctx, 'pr_lnmast_sync' );
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
-            --plog.setendsection( pkgctx, 'pr_lnmast_sync' );
+            plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
+            plog.setendsection( pkgctx, 'pr_lnmast_sync' );
             --forward error
             RAISE;
     END;
@@ -463,7 +463,7 @@ IS
         l_error_desc VARCHAR2(300);
 
     BEGIN
-        --plog.setbeginsection( pkgctx, 'pr_ddmast_sync' );
+        plog.setbeginsection( pkgctx, 'pr_ddmast_sync' );
 
         l_max_count   := 0;
         -- comment 16/10/2018
@@ -697,14 +697,14 @@ IS
 --        update bk_account_info set status = 'DLTD' where acct_no in (select lpad(cfaccn, 14 , '0') from cdc_cfacct);commit; 
 
 --        COMMIT;
-        --plog.setendsection( pkgctx, 'pr_ddmast_sync' );
+        plog.setendsection( pkgctx, 'pr_ddmast_sync' );
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
-           -- plog.setendsection( pkgctx, 'pr_ddmast_sync' );
+            plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
+            plog.setendsection( pkgctx, 'pr_ddmast_sync' );
             --forward error
             RAISE;
     END;
@@ -776,7 +776,7 @@ IS
         l_error_desc VARCHAR2(300);
 
     BEGIN
-        -- plog.setbeginsection( pkgctx, 'pr_cdmast_sync' );
+        plog.setbeginsection( pkgctx, 'pr_cdmast_sync' );
 
         l_min_count   := 0;
         l_max_count   := 0;
@@ -824,7 +824,7 @@ IS
             l_max_count := l_min_count + g_limit_count;
             MERGE INTO   bk_receipt_info c
                  USING   (SELECT
-                                b.acctno acctno,
+                                (case when length(b.acctno) = 13 then LPAD (b.acctno, 14, '0') else TO_CHAR(b.acctno) end) acctno,
                                    b.cdterm,
                                    b.cbal,
                                    b.orgbal,
@@ -1207,14 +1207,14 @@ IS
         );commit; 
         -- update bk_receipt_info set status = 'CLOS' where ACCOUNT_NO in (select lpad(cfaccn, 14 , '0') from cdc_cfacct);commit; 
         -- 11/02/2020.
-       -- plog.setendsection( pkgctx, 'pr_cdmast_sync' );
+        plog.setendsection( pkgctx, 'pr_cdmast_sync' );
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-           -- plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
-           -- plog.setendsection( pkgctx, 'pr_cdmast_sync' );
+            plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
+            plog.setendsection( pkgctx, 'pr_cdmast_sync' );
             --forward error
             RAISE;
 
@@ -1312,7 +1312,7 @@ PROCEDURE pr_cdmemo_cdc_override
         l_error_desc VARCHAR2(300);
 
     BEGIN
-        --plog.setbeginsection( pkgctx, 'pr_passbook_no_sync' );
+        plog.setbeginsection( pkgctx, 'pr_passbook_no_sync' );
 
         l_max_count   := 0;
 
@@ -1343,16 +1343,16 @@ PROCEDURE pr_cdmemo_cdc_override
 
 
        EXECUTE IMMEDIATE ' TRUNCATE TABLE SYNC_ETL_TMPBMAST';
---       INSERT INTO sync_etl_tmpbmast
---        SELECT
---                a.tmbmacct,
---                a.tmbmrser
---
---          FROM   svdatpv51.tmpbmast@dblink_data a
---          WHERE  LPAD(a.tmbmacct,
---                      14,
---                      '0') IN (SELECT acct_no
---                               FROM   sync_account_info);
+       INSERT INTO sync_etl_tmpbmast
+        SELECT
+                a.tmbmacct,
+                a.tmbmrser
+
+          FROM   svdatpv51.tmpbmast@dblink_data a
+          WHERE  LPAD(a.tmbmacct,
+                      14,
+                      '0') IN (SELECT acct_no
+                               FROM   sync_account_info);
         Commit;
         -- comment 16/10/2018 
 --        DBMS_STATS.gather_table_stats (
@@ -1398,14 +1398,14 @@ PROCEDURE pr_cdmemo_cdc_override
             EXIT WHEN (l_max_count > l_max_cif);
         END LOOP;
 
-       -- plog.setendsection( pkgctx, 'pr_passbook_no_sync' );
+        plog.setendsection( pkgctx, 'pr_passbook_no_sync' );
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-          --  plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
-            --plog.setendsection( pkgctx, 'pr_passbook_no_sync' );
+            plog.error( pkgctx, l_error_desc || 'l_min_count = ' || l_min_count || ',l_max_count=' || l_max_count);
+            plog.setendsection( pkgctx, 'pr_passbook_no_sync' );
             --forward error
             RAISE;
 
@@ -1417,12 +1417,12 @@ BEGIN
     FROM   tlogdebug
     WHERE   ROWNUM <= 1;
 
---    pkgctx      :=
---    plog.init('cspkg_account_etl_sync',
---        plevel => logrow.loglevel,
---        plogtable => ( logrow.log4table = 'Y' ),
---        palert => ( logrow.log4alert = 'Y' ),
---        ptrace => ( logrow.log4trace = 'Y' ) );
+    pkgctx      :=
+    plog.init('cspkg_account_etl_sync',
+        plevel => logrow.loglevel,
+        plogtable => ( logrow.log4table = 'Y' ),
+        palert => ( logrow.log4alert = 'Y' ),
+        ptrace => ( logrow.log4trace = 'Y' ) );
 END;
 
 /

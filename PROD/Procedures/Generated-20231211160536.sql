@@ -1,0 +1,24 @@
+--------------------------------------------------------
+--  File created - Monday-December-11-2023   
+--------------------------------------------------------
+@C:\Users\tuantv9\Procedures\ADJUST_TZ.sql
+@C:\Users\tuantv9\Procedures\FIX1882ROW.sql
+@C:\Users\tuantv9\Procedures\MANUAL_DONG_BO_BK_CIF.sql
+@C:\Users\tuantv9\Procedures\MANUAL_DONG_BO_LICH_SU_GD.sql
+@C:\Users\tuantv9\Procedures\PRC_UPDATE_EBANK_STATUS.sql
+@C:\Users\tuantv9\Procedures\PROC_DDHIST_BY_6M_ACCT_SYNC.sql
+@C:\Users\tuantv9\Procedures\PROC_DDHIST_BY_DATE_CIF_SYNC.sql
+@C:\Users\tuantv9\Procedures\PROC_DDHIST_BY_TODATE_CIF_SYNC.sql
+@C:\Users\tuantv9\Procedures\PROC_UPDATE_FD_PRODUCT.sql
+@C:\Users\tuantv9\Procedures\PR_BENIFIT_INT_ACC_DDHIST.sql
+@C:\Users\tuantv9\Procedures\PR_BENIFIT_INT_ALL_DDHIST.sql
+@C:\Users\tuantv9\Procedures\PR_SYNC_MDB_PRODUCT.sql
+@C:\Users\tuantv9\Procedures\PR_SYNC_TMTRAN24_MANUAL.sql
+@C:\Users\tuantv9\Procedures\PR_SYNC_TMTRAN_MANUAL.sql
+@C:\Users\tuantv9\Procedures\PR_SYNC_TMTRAN_MANUAL_FR_CORE.sql
+@C:\Users\tuantv9\Procedures\PR_TMTRAN_SYNC_02022016.sql
+@C:\Users\tuantv9\Procedures\SEND_MAIL.sql
+@C:\Users\tuantv9\Procedures\UAT_MANUAL_MERGE_ODTIER.sql
+@C:\Users\tuantv9\Procedures\UPDATEBRANCH.sql
+@C:\Users\tuantv9\Procedures\UPDATE_STATUS_BB_TRAN_HIS.sql
+@C:\Users\tuantv9\Procedures\Z_PR_DISABLE_JOB.sql

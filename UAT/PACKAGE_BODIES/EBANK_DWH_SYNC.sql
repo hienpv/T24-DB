@@ -128,24 +128,26 @@
 
  PROCEDURE proc_card_statement IS
   BEGIN
-     insert into card_statement (select * from card_statement_sql);
-
-     commit;
+--     insert into card_statement (select * from card_statement_sql);
+--
+--     commit;
+    null;
   END;
 
 
  PROCEDURE proc_card_payment_bk IS
     sqlstr varchar2(4000);
   BEGIN
-    insert into bc_ccard_payment_history_bk (select * from bc_ccard_payment_history
-    where create_time >= to_date('01-'||to_char(sysdate,'MM')||'-2014','dd-MM-yyyy') and
-    create_time <= to_date('15-'||to_char(sysdate,'MM')||'-2014','dd-MM-yyyy'));
+--    insert into bc_ccard_payment_history_bk (select * from bc_ccard_payment_history
+--    where create_time >= to_date('01-'||to_char(sysdate,'MM')||'-2014','dd-MM-yyyy') and
+--    create_time <= to_date('15-'||to_char(sysdate,'MM')||'-2014','dd-MM-yyyy'));
 
-   sqlstr := 'delete bc_ccard_payment_history
-    where create_time >= to_date(''01-'||to_char(sysdate,'MM')||'-2014'',''dd-MM-yyyy'') and
-   create_time <= to_date(''15-'||to_char(sysdate,'MM')||'-2014'',''dd-MM-yyyy'')';
-    execute immediate sqlstr;
-    commit;
+--   sqlstr := 'delete bc_ccard_payment_history
+--    where create_time >= to_date(''01-'||to_char(sysdate,'MM')||'-2014'',''dd-MM-yyyy'') and
+--   create_time <= to_date(''15-'||to_char(sysdate,'MM')||'-2014'',''dd-MM-yyyy'')';
+--    execute immediate sqlstr;
+--    commit;
+    null;
   END;
 
 

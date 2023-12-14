@@ -18,7 +18,7 @@ IS
      **  LocTX      31-10-2014    Created
      ** (c) 2014 by Financial Software Solutions. JSC.
      ----------------------------------------------------------------------------------------------------*/
-    --pkgctx    plog.log_ctx;
+    pkgctx    plog.log_ctx;
     logrow    tlogdebug%ROWTYPE;
 
 /*----------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ IS
         l_val             NUMBER := 0;
         l_error_desc VARCHAR2(300);
     BEGIN
-       -- plog.setbeginsection( pkgctx, 'pr_reset_sequence_sync' );
+        plog.setbeginsection( pkgctx, 'pr_reset_sequence_sync' );
 
         l_val        := 0;
         p_min_value  := 0;
@@ -80,16 +80,16 @@ IS
 
         COMMIT;
 
-       -- plog.setendsection( pkgctx, 'pr_reset_sequence_sync' );
+        plog.setendsection( pkgctx, 'pr_reset_sequence_sync' );
 
     EXCEPTION
     WHEN OTHERS
     THEN
         ROLLBACK;
         l_error_desc := substr(SQLERRM, 200);
-       -- plog.error( pkgctx, l_error_desc);
+        plog.error( pkgctx, l_error_desc);
 
-       -- plog.setendsection( pkgctx, 'pr_reset_sequence_sync' );
+        plog.setendsection( pkgctx, 'pr_reset_sequence_sync' );
         RAISE;
 
     END;
@@ -109,7 +109,7 @@ IS
         l_error_desc VARCHAR2(300);
         l_count NUMBER := 0;
     BEGIN
-      -- plog.setbeginsection (pkgctx, 'pr_backup_hist');
+        plog.setbeginsection (pkgctx, 'pr_backup_hist');
         l_etl_date := TO_DATE(p_etl_date, 'RRRRDDD');
 
         DELETE /*+ PARALLEL(16)*/ FROM sync_bk_account_history a --MOVE FROM proc_del_tran_old_sync COMMON FUNCTION
@@ -251,16 +251,16 @@ IS
             cascade    => TRUE
        ); 
       -- END comment gather 12/10/2018  
-       -- plog.setbeginsection (pkgctx, 'pr_backup_hist');
+        plog.setbeginsection (pkgctx, 'pr_backup_hist');
 
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-         --   plog.error( pkgctx, l_error_desc);
+            plog.error( pkgctx, l_error_desc);
 
-         --   plog.setendsection( pkgctx, 'pr_backup_hist' );
+            plog.setendsection( pkgctx, 'pr_backup_hist' );
             RAISE;
 
     END;
@@ -272,7 +272,7 @@ IS
         l_error_desc VARCHAR2(300);
         l_count NUMBER := 0;
     BEGIN
-      --  plog.setbeginsection (pkgctx, 'pr_backup_hist');
+        plog.setbeginsection (pkgctx, 'pr_backup_hist');
         l_etl_date := TO_DATE(p_etl_date, 'RRRRDDD');
 
         DELETE /*+ PARALLEL(16)*/ FROM sync_bk_account_history a --MOVE FROM proc_del_tran_old_sync COMMON FUNCTION
@@ -428,16 +428,16 @@ IS
 */
 
         COMMIT;
-        --plog.setbeginsection (pkgctx, 'pr_backup_hist');
+        plog.setbeginsection (pkgctx, 'pr_backup_hist');
 
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-           -- plog.error( pkgctx, l_error_desc);
+            plog.error( pkgctx, l_error_desc);
 
-           -- plog.setendsection( pkgctx, 'pr_backup_hist' );
+            plog.setendsection( pkgctx, 'pr_backup_hist' );
             RAISE;
 
     END;
@@ -468,7 +468,7 @@ IS
         v_checkpoint_date NUMBER;
         l_error_desc      VARCHAR2(300);
    BEGIN
-       -- plog.setbeginsection (pkgctx, 'pr_lnhist_new_cif_sync');
+        plog.setbeginsection (pkgctx, 'pr_lnhist_new_cif_sync');
 
         l_etl_date_dt      := TO_DATE(p_etl_date,'YYYYDDD');
         l_date_from_6month_dt := ADD_MONTHS(TRUNC(l_etl_date_dt,  'MM'), - 6);
@@ -563,20 +563,20 @@ IS
 
         g_error_level := 10;
 
---        INSERT INTO sync_tranmap
---        SELECT
---            a.tran_sn,
---            a.teller_id,
---            a.host_tran_sn,
---            a.host_real_date,
---            a.sender_id
---        FROM   bec.bec_msglog@dblink_tranmap a
---        WHERE  a.sorn = 'Y'
---        AND    TRUNC(TO_DATE(a.message_date,
---                           'yyyymmddhh24mi')) < l_etl_date_dt
---        AND  TRUNC(TO_DATE(a.message_date,
---                       'yyyymmddhh24mi')) >= l_date_from_6month_dt --#20150119 Loctx add for tunning
---        AND    LENGTH(a.tran_sn) < 21;
+        INSERT INTO sync_tranmap
+        SELECT
+            a.tran_sn,
+            a.teller_id,
+            a.host_tran_sn,
+            a.host_real_date,
+            a.sender_id
+        FROM   bec.bec_msglog@dblink_tranmap a
+        WHERE  a.sorn = 'Y'
+        AND    TRUNC(TO_DATE(a.message_date,
+                           'yyyymmddhh24mi')) < l_etl_date_dt
+        AND  TRUNC(TO_DATE(a.message_date,
+                       'yyyymmddhh24mi')) >= l_date_from_6month_dt --#20150119 Loctx add for tunning
+        AND    LENGTH(a.tran_sn) < 21;
 
         g_error_level := 7;
 
@@ -660,17 +660,17 @@ IS
 
         COMMIT;
 
-       -- EXECUTE IMMEDIATE 'alter session close database link dblink_data';
+        EXECUTE IMMEDIATE 'alter session close database link dblink_data';
 
-        --plog.setendsection (pkgctx, 'pr_lnhist_new_cif_sync');
+        plog.setendsection (pkgctx, 'pr_lnhist_new_cif_sync');
 
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc || ', g_error_level =' || g_error_level);
+            plog.error( pkgctx, l_error_desc || ', g_error_level =' || g_error_level);
 
-            --plog.setendsection( pkgctx, 'pr_lnhist_new_cif_sync' );
+            plog.setendsection( pkgctx, 'pr_lnhist_new_cif_sync' );
             RAISE;
 
    END;
@@ -702,7 +702,7 @@ IS
         l_error_desc      VARCHAR2(300);
 
     BEGIN
-        --plog.setbeginsection (pkgctx, 'pr_cdhist_new_cif_sync');
+        plog.setbeginsection (pkgctx, 'pr_cdhist_new_cif_sync');
 
         l_etl_date_dt      := TO_DATE(p_etl_date,'YYYYDDD');
         l_date_from_6month_dt := ADD_MONTHS(TRUNC(l_etl_date_dt,  'MM'), - 6);
@@ -752,31 +752,31 @@ IS
             g_min_time := g_max_time;
             g_max_time := g_min_time + g_limit_time;
 
---            INSERT INTO sync_cdhist
---              SELECT
---               a.chtran,
---               a.chdorc,
---               a.chamt,
---               a.chcurr,
---               a.chcamt,
---               a.chvarf,
---               a.chacct,
---               a.chefdt,
---               a.chpstd,
---               a.chseqn,
---               TRIM(a.chuser),
---               a.chtime
---              FROM   --STAGINGUAT.si_his_cdhist@staging_pro_core a,
---                    svhispv51.cdhist@dblink_data a, --20160426 QuanPD changed STAGING->CORE
---                    sync_account_info b
---              WHERE  a.chdorc IN ('D','C')
---              AND    a.chafft in ('B','C')
---              AND    a.chtran NOT IN (77,129,178, 185)
---              AND    a.chpstd >= v_min_date
---              AND    a.chpstd < v_checkpoint_date
---              AND TO_NUMBER(b.acct_no) = a.chacct--HAONS20150120
---              AND    a.chtime >= g_min_time
---              AND    a.chtime < g_max_time;
+            INSERT INTO sync_cdhist
+              SELECT
+               a.chtran,
+               a.chdorc,
+               a.chamt,
+               a.chcurr,
+               a.chcamt,
+               a.chvarf,
+               a.chacct,
+               a.chefdt,
+               a.chpstd,
+               a.chseqn,
+               TRIM(a.chuser),
+               a.chtime
+              FROM   --staging.si_his_cdhist@staging_pro a,
+                    svhispv51.cdhist@dblink_data a, --20160426 QuanPD changed STAGING->CORE
+                    sync_account_info b
+              WHERE  a.chdorc IN ('D','C')
+              AND    a.chafft in ('B','C')
+              AND    a.chtran NOT IN (77,129,178, 185)
+              AND    a.chpstd >= v_min_date
+              AND    a.chpstd < v_checkpoint_date
+              AND TO_NUMBER(b.acct_no) = a.chacct--HAONS20150120
+              AND    a.chtime >= g_min_time
+              AND    a.chtime < g_max_time;
 
             COMMIT;
             --khong co them ban ghi nao
@@ -796,20 +796,20 @@ IS
 
         g_error_level := 10;
 
---        INSERT INTO sync_tranmap
---          SELECT
---           a.tran_sn,
---           a.teller_id,
---           a.host_tran_sn,
---           a.host_real_date,
---           a.sender_id
---          FROM   bec.bec_msglog@dblink_tranmap a
---          WHERE  a.sorn = 'Y'
---          AND    TRUNC(TO_DATE(a.message_date,
---                               'yyyymmddhh24mi')) < l_etl_date_dt
---          AND  TRUNC(TO_DATE(a.message_date,
---                               'yyyymmddhh24mi')) >= l_date_from_6month_dt --#20150119 Loctx add for tunning
---          AND    LENGTH(a.tran_sn) < 21;
+        INSERT INTO sync_tranmap
+          SELECT
+           a.tran_sn,
+           a.teller_id,
+           a.host_tran_sn,
+           a.host_real_date,
+           a.sender_id
+          FROM   bec.bec_msglog@dblink_tranmap a
+          WHERE  a.sorn = 'Y'
+          AND    TRUNC(TO_DATE(a.message_date,
+                               'yyyymmddhh24mi')) < l_etl_date_dt
+          AND  TRUNC(TO_DATE(a.message_date,
+                               'yyyymmddhh24mi')) >= l_date_from_6month_dt --#20150119 Loctx add for tunning
+          AND    LENGTH(a.tran_sn) < 21;
 
         g_error_level := 7;
 
@@ -886,15 +886,15 @@ IS
 
         COMMIT;
 
-        -- EXECUTE IMMEDIATE 'alter session close database link dblink_data';
-        --plog.setendsection (pkgctx, 'pr_cdhist_new_cif_sync');
+        EXECUTE IMMEDIATE 'alter session close database link dblink_data';
+        plog.setendsection (pkgctx, 'pr_cdhist_new_cif_sync');
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc || ', g_error_level =' || g_error_level);
+            plog.error( pkgctx, l_error_desc || ', g_error_level =' || g_error_level);
 
-            --plog.setendsection( pkgctx, 'pr_cdhist_new_cif_sync' );
+            plog.setendsection( pkgctx, 'pr_cdhist_new_cif_sync' );
             RAISE;
     END;
 
@@ -916,7 +916,7 @@ IS
         l_check NUMBER;
     BEGIN
 
-        --plog.setbeginsection (pkgctx, 'pr_cdhist_sync');
+        plog.setbeginsection (pkgctx, 'pr_cdhist_sync');
         g_min_time   := 0;
         g_max_time   := 0;
         g_limit_time := 60000;
@@ -1008,15 +1008,15 @@ IS
             END;
         END LOOP;
         COMMIT;
-        --plog.setbeginsection (pkgctx, 'pr_cdhist_sync');
+        plog.setbeginsection (pkgctx, 'pr_cdhist_sync');
 
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc);
+            plog.error( pkgctx, l_error_desc);
 
-            --plog.setendsection( pkgctx, 'pr_cdhist_sync' );
+            plog.setendsection( pkgctx, 'pr_cdhist_sync' );
             RAISE;
 
     END;
@@ -1040,7 +1040,7 @@ IS
         l_check           NUMBER;
     BEGIN
 
-        --plog.setbeginsection (pkgctx, 'pr_ddhist_sync');
+        plog.setbeginsection (pkgctx, 'pr_ddhist_sync');
         g_limit_time := 60000;
         g_time_count := 240000;
         g_min_time        := 0;
@@ -1138,15 +1138,15 @@ IS
         END;
         END LOOP;
         COMMIT;
-        --plog.setbeginsection (pkgctx, 'pr_ddhist_sync');
+        plog.setbeginsection (pkgctx, 'pr_ddhist_sync');
 
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM,200) || g_min_time; --#20150324 Loctx add g_min_time
-            --plog.error( pkgctx, l_error_desc);
+            plog.error( pkgctx, l_error_desc);
 
-            --plog.setendsection( pkgctx, 'pr_ddhist_sync' );
+            plog.setendsection( pkgctx, 'pr_ddhist_sync' );
             RAISE;
     END;
 
@@ -1166,7 +1166,7 @@ IS
         l_error_desc      VARCHAR2(300);
         l_check           NUMBER;
     BEGIN
-        --plog.setbeginsection (pkgctx, 'pr_lnhist_sync');
+        plog.setbeginsection (pkgctx, 'pr_lnhist_sync');
         g_limit_time := 60000;
         g_time_count := 240000;
         g_min_time        := 0;
@@ -1190,7 +1190,7 @@ IS
         LOOP
             g_max_time := g_min_time + g_limit_time;
 
-             --plog.DEBUG (pkgctx, 'g_max_time=' || g_max_time);
+             plog.DEBUG (pkgctx, 'g_max_time=' || g_max_time);
 
             INSERT INTO twtb_account_history (core_sn, --20160301 QuanPD dung bang tam roi moi day vao bang chinh
                                             tran_time,
@@ -1249,7 +1249,7 @@ IS
                             AND a.lhtime >= g_min_time
                             AND a.lhtime < g_max_time);
 
-            --plog.DEBUG (pkgctx, 'finish g_max_time=' || g_max_time);
+            plog.DEBUG (pkgctx, 'finish g_max_time=' || g_max_time);
             COMMIT;
 
             g_min_time := g_max_time;
@@ -1258,14 +1258,14 @@ IS
             EXIT WHEN (g_max_time > g_time_count);
         END LOOP;
         COMMIT;
-        --plog.setbeginsection (pkgctx, 'pr_lnhist_sync');
+        plog.setbeginsection (pkgctx, 'pr_lnhist_sync');
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-           -- plog.error( pkgctx, l_error_desc);
+            plog.error( pkgctx, l_error_desc);
 
-            --plog.setendsection( pkgctx, 'pr_lnhist_sync' );
+            plog.setendsection( pkgctx, 'pr_lnhist_sync' );
         RAISE;
 
     END;
@@ -1297,7 +1297,7 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
     l_error_desc      VARCHAR2(300);
 
   BEGIN
-    --plog.setbeginsection( pkgctx, 'pr_ddhist_new_cif_sync' );
+    plog.setbeginsection( pkgctx, 'pr_ddhist_new_cif_sync' );
     l_etl_date_dt      := TO_DATE(p_etl_date,'YYYYDDD');
     l_date_from_6month_dt := ADD_MONTHS(TRUNC(l_etl_date_dt,  'MM'), - 3);
 
@@ -1400,21 +1400,21 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
 
     g_error_level := 10;
 
---    INSERT INTO sync_tranmap
---      SELECT
---       a.tran_sn,
---       a.teller_id,
---       a.host_tran_sn,
---       a.host_real_date,
---       a.sender_id
---      FROM   bec.bec_msglog@dblink_tranmap a
---      WHERE  a.sorn = 'Y'
---      AND    TRUNC(TO_DATE(a.message_date,
---                           'yyyymmddhh24mi')) < l_etl_date_dt
---      AND  TRUNC(TO_DATE(a.message_date,
---                           'yyyymmddhh24mi')) >= l_date_from_6month_dt --#20150119 Loctx add for tunning
---
---      AND    LENGTH(a.tran_sn) < 21;
+    INSERT INTO sync_tranmap
+      SELECT
+       a.tran_sn,
+       a.teller_id,
+       a.host_tran_sn,
+       a.host_real_date,
+       a.sender_id
+      FROM   bec.bec_msglog@dblink_tranmap a
+      WHERE  a.sorn = 'Y'
+      AND    TRUNC(TO_DATE(a.message_date,
+                           'yyyymmddhh24mi')) < l_etl_date_dt
+      AND  TRUNC(TO_DATE(a.message_date,
+                           'yyyymmddhh24mi')) >= l_date_from_6month_dt --#20150119 Loctx add for tunning
+
+      AND    LENGTH(a.tran_sn) < 21;
 
     g_error_level := 7;
 
@@ -1514,16 +1514,16 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
 
     COMMIT;
 
-   --  EXECUTE IMMEDIATE 'alter session close database link dblink_data';
-    --plog.setendsection (pkgctx, 'pr_ddhist_new_cif_sync');
+    EXECUTE IMMEDIATE 'alter session close database link dblink_data';
+    plog.setendsection (pkgctx, 'pr_ddhist_new_cif_sync');
 
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc || ', g_error_level =' || g_error_level);
+            plog.error( pkgctx, l_error_desc || ', g_error_level =' || g_error_level);
 
-            --plog.setendsection( pkgctx, 'pr_ddhist_new_cif_sync' );
+            plog.setendsection( pkgctx, 'pr_ddhist_new_cif_sync' );
             RAISE;
     END;
 
@@ -1544,7 +1544,7 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
         l_error_desc      VARCHAR2(300);
         l_etl_date_dt   DATE;
     BEGIN
-        --plog.setbeginsection (pkgctx, 'pr_update_benifit_info');
+        plog.setbeginsection (pkgctx, 'pr_update_benifit_info');
 
         l_etl_date_dt := TO_DATE(p_etl_date , 'RRRRDDD');
 
@@ -1610,14 +1610,14 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
         END LOOP;
         DBMS_OUTPUT.put_line('b2');
         --#20150422 LocTX add for giao dich phat sinh luc chay batch
-        --plog.info( pkgctx, 'Cap nhat thong tin thu huong - giao dich phat sinh do chay batch');
+        plog.info( pkgctx, 'Cap nhat thong tin thu huong - giao dich phat sinh do chay batch');
         DBMS_OUTPUT.put_line('b3');
 
         --pr_benifit_batch_txn(p_etl_date);--#20171225 Loctx disable va thay bang ham khac xac dinh thong tin thu huong
         cspkg_benifit_refresh.pr_benifit_internal_txn_eod(p_etl_date);--#20171225 Loctx add
         DBMS_OUTPUT.put_line('b4');
 
-        --plog.setendsection (pkgctx, 'pr_update_benifit_info');
+        plog.setendsection (pkgctx, 'pr_update_benifit_info');
         DBMS_OUTPUT.put_line('b5');
 
         -- gather comment 16/10/2018
@@ -1630,9 +1630,9 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
         WHEN OTHERS THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200) || 'g_max_time=' || g_max_time || ',g_min_time' || g_min_time;
-            --plog.error( pkgctx, l_error_desc);
+            plog.error( pkgctx, l_error_desc);
 
-            --plog.setendsection( pkgctx, 'pr_update_benifit_info' );
+            plog.setendsection( pkgctx, 'pr_update_benifit_info' );
         RAISE;
 
     END;
@@ -1766,7 +1766,7 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
 
     BEGIN
 
-        --plog.setbeginsection( pkgctx, 'pr_benifit_batch_txn' );
+        plog.setbeginsection( pkgctx, 'pr_benifit_batch_txn' );
 
         OPEN c_txn(p_date7, TO_DATE(p_date7, 'RRRRDDD'));
         LOOP
@@ -1785,14 +1785,14 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
 
         END LOOP;
         CLOSE c_txn ;
-        --plog.setendsection( pkgctx, 'pr_benifit_batch_txn' );
+        plog.setendsection( pkgctx, 'pr_benifit_batch_txn' );
     EXCEPTION
         WHEN OTHERS
         THEN
             ROLLBACK;
             l_error_desc := substr(SQLERRM, 200);
-            --plog.error( pkgctx, l_error_desc);
-            --plog.setendsection( pkgctx, 'pr_benifit_batch_txn' );
+            plog.error( pkgctx, l_error_desc);
+            plog.setendsection( pkgctx, 'pr_benifit_batch_txn' );
             CLOSE c_txn;
             --forward error
             RAISE;
@@ -1804,12 +1804,12 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
     FROM   tlogdebug
     WHERE   ROWNUM <= 1;
 
-    ---pkgctx      :=
-    --plog.init('cspkg_transaction_etl_sync',
-    --    plevel => logrow.loglevel,
-    --    plogtable => ( logrow.log4table = 'Y' ),
-    --    palert => ( logrow.log4alert = 'Y' ),
-    --    ptrace => ( logrow.log4trace = 'Y' ) );
+    pkgctx      :=
+    plog.init('cspkg_transaction_etl_sync',
+        plevel => logrow.loglevel,
+        plogtable => ( logrow.log4table = 'Y' ),
+        palert => ( logrow.log4alert = 'Y' ),
+        ptrace => ( logrow.log4trace = 'Y' ) );
 
   END cspkg_transaction_etl_sync;
 

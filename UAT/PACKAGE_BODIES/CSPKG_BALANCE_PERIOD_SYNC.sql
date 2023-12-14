@@ -5,7 +5,7 @@
   CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_BALANCE_PERIOD_SYNC" 
 IS
 
-   -- pkgctx    plog.log_ctx;
+    pkgctx    plog.log_ctx;
     logrow    tlogdebug%ROWTYPE;
 
   /*----------------------------------------------------------------------------------------------------
@@ -139,12 +139,12 @@ IS
         FROM   tlogdebug
         WHERE   ROWNUM <= 1;
 
-        --pkgctx      :=
---        plog.init('acpkg_cdaccount_cdc',
---            plevel => logrow.loglevel,
---            plogtable => ( logrow.log4table = 'Y' ),
---            palert => ( logrow.log4alert = 'Y' ),
---            ptrace => ( logrow.log4trace = 'Y' ) );
+        pkgctx      :=
+        plog.init('acpkg_cdaccount_cdc',
+            plevel => logrow.loglevel,
+            plogtable => ( logrow.log4table = 'Y' ),
+            palert => ( logrow.log4alert = 'Y' ),
+            ptrace => ( logrow.log4trace = 'Y' ) );
 
 END;
 
