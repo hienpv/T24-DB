@@ -1,0 +1,38 @@
+--------------------------------------------------------
+--  DDL for Function FN_GET_CLASS_CIF
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "FN_GET_CLASS_CIF" 
+(
+  CFINDI VARCHAR2,
+  CFSIC1 VARCHAR2,
+  CFSIC2 VARCHAR2,
+  CFSIC3 VARCHAR2,
+  CFSIC4 VARCHAR2,
+  CFSIC5 VARCHAR2,
+  CFSIC6 VARCHAR2,
+  CFSIC7 VARCHAR2,
+  CFSIC8 VARCHAR2
+)
+RETURN VARCHAR2 AS 
+  V_RESULT VARCHAR2(10);
+BEGIN
+  IF TRIM(CFSIC7) = 'Y' THEN
+    V_RESULT := 'BB';
+  ELSIF TRIM(CFINDI) = 'Y' AND TRIM(CFSIC8) = 'Y' THEN
+    V_RESULT := 'CB';
+  ELSIF TRIM(CFINDI) = 'Y' AND NVL(TRIM(CFSIC8), ' ') <> 'Y' THEN
+    V_RESULT := 'RB';
+  ELSIF TRIM(CFSIC4) = 'Y' THEN  
+    V_RESULT := 'FI';
+  ELSIF TRIM(CFSIC6) = 'Y' THEN  
+    V_RESULT := 'LC';
+  ELSIF TRIM(CFSIC3) = 'Y' THEN  
+    V_RESULT := 'SME';
+  ELSE  
+    V_RESULT := 'OTH';
+  END IF;      
+  RETURN V_RESULT;
+END FN_GET_CLASS_CIF;
+
+/
