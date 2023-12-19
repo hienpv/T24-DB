@@ -11,7 +11,7 @@ set define off;
                 SELECT h.rowid h_rowid, his.tracct beneficiary_acct_no,
                       'MARITIME BANK' beneficiary_acct_bank,
                       bka.acct_name beneficiary_acct_name
-                FROM ibs.bk_account_history h, STG.SI_HIS_DDHIST@STAGING_PRO his, ibs.cstb_account_info bka
+                FROM ibs.bk_account_history h, STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE his, ibs.cstb_account_info bka
                 WHERE 1=1
                 --AND TRUNC(h.post_time) = p_cur_date_dt
                 AND h.tran_time >= p_cur_date_dt AND h.tran_time < p_cur_date_dt + 1 --#20160723 Loctx change

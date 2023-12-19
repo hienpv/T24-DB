@@ -253,7 +253,7 @@
                Ltrim(trim(a.tracct), '0') || /*trim(a.auxtrc) ||*/
                trim(a.dorc) ||
                to_number(a.trdate || LPAD(a.trtime, 6, '0'))
-                from STAGING.SI_HIS_DDDHIST@DBLINK_DATA_STAGING a
+                from STAGING.SI_HIS_DDDHIST@STAGING_PRO_CORE a
               -- FROM sthistrn.ddhist@dblink_data a
               --  select * from STAGING.SI_HIS_DDDHIST@DBLINK_DATA_STAGING
                WHERE a.trdate = (v_checkpoint_date)
@@ -588,7 +588,7 @@
                -- checkkey
                chacct || trim(chdorc) || trim(chcurr) || to_char(chamt) ||
                trim(TRIM(a.chuser)) || trim(a.chseqn) || a.chpstd
-                FROM STAGING.SI_HIS_CDDHIST@dblink_data_staging a
+                FROM STAGING.SI_HIS_CDDHIST@STAGING_PRO_CORE a
               -- FROM sthistrn.cdhist@dblink_data a
                WHERE a.chdorc IN ('D', 'C')
                  AND a.chafft in ('B', 'C') --anhnt6
@@ -924,7 +924,7 @@
                -- teller || so seq ||  ngay giao dich|| gio giao dich
                a.lhacct || trim(lhdorc) || trim(lhcur) || trim(lhamt) ||
                trim(a.lhuser) || trim(a.lhseqn) || a.lhpstd
-                FROM STAGING.SI_DAT_LNDHIS@DBLINK_DATA_STAGING a
+                FROM STAGING.SI_DAT_LNDHIS@STAGING_PRO_CORE a
               -- FROM sthistrn.lnhist@dblink_data a
                WHERE a.lhdorc IN ('D', 'C')
                  AND a.lhpstd = (v_checkpoint_date)

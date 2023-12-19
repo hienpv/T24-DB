@@ -37,7 +37,7 @@ IS
                         TRIM (memo.acname) acct_name
                 FROM    bk_account_info bka,
                         --RAWSTAGE.si_dat_ddmemo@RAWSTAGE_PRO memo
-                        RAWSTAGEUAT.SI_DAT_DDMEMO_N@RAWSTAGE_PRO_CORE memo --#20160611 Loctx change tam thoi gi RAWSTAGE LOI JOB RWSIDD
+                        RAWSTAGE.SI_DAT_DDMEMO_N@RAWSTAGE_PRO_CORE memo --#20160611 Loctx change tam thoi gi RAWSTAGE LOI JOB RWSIDD
                 WHERE   (bka.acct_no = (case when length(memo.acctno) = 13 then LPAD (memo.acctno, 14, '0') else TO_CHAR(memo.acctno) end) or bka.acct_no = memo.acctno)
                 AND     bka.acct_type = fn_get_actype_code (TRIM(memo.actype))
                 AND     (bka.ledger_balance <> memo.cbal
@@ -86,7 +86,7 @@ IS
                         (case when length(memo.cdnum) = 13 then LPAD (memo.cdnum, 14, '0') else TO_CHAR(memo.cdnum) end) p_acct_no
                 FROM    ibs.bk_account_info bka,
                         --RAWSTAGE.si_dat_cdmemo@RAWSTAGE_PRO memo
-                        RAWSTAGEUAT.SI_DAT_CDMEMO@RAWSTAGE_PRO_CORE memo --#202004131 Loctx change
+                        RAWSTAGE.SI_DAT_CDMEMO@RAWSTAGE_PRO_CORE memo --#202004131 Loctx change
                 WHERE   (bka.acct_no = (case when length(memo.acctno) = 13 then LPAD (memo.acctno, 14, '0') else TO_CHAR(memo.acctno) end) or bka.acct_no = memo.acctno)
                 AND     bka.acct_type = 'FD'
                 AND     (bka.hold_amount <> memo.hold
@@ -117,7 +117,7 @@ IS
                         memo.cbal principal,
                         fn_get_account_status_code (memo.status) status
                 FROM    bk_receipt_info bkr,
-                        RAWSTAGEUAT.si_dat_cdmemo@RAWSTAGE_PRO_CORE memo
+                        RAWSTAGE.si_dat_cdmemo@RAWSTAGE_PRO_CORE memo
                 WHERE   bkr.receipt_no = (case when length(memo.acctno) = 13 then LPAD (memo.acctno, 14, '0') else TO_CHAR(memo.acctno) end)
                 AND     (bkr.status <> fn_get_account_status_code (memo.status)
                         OR bkr.principal <> memo.cbal)

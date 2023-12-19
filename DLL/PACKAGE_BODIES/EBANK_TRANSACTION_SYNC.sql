@@ -91,7 +91,7 @@
            NULL,
            a.tmsseq,
            a.tmtiment
-          FROM   STG.SI_DAT_TMTRAN@STAGING_PRO a
+          FROM   STAGING.SI_DAT_TMTRAN@STAGING_PRO_CORE a
           WHERE  a.tmapptype <> 'G' /*NOT IN ('S',
                                                                                                                                                                                                                                                                                                                                      'G')*/
                 /*AND    LENGTH(rtrim(a.tmresv07)) = 14*/
@@ -661,7 +661,7 @@
            NULL,
            a.tmsseq,
            a.tmtiment
-          FROM   STG.SI_DAT_TMTRAN@STAGING_PRO a
+          FROM   STAGING.SI_DAT_TMTRAN@STAGING_PRO_CORE a
           WHERE  a.tmtxstat = 'CE' --giao dich huy
           AND    a.tmapptype <> 'G'
           AND    RTRIM(a.tmresv07) IS NOT NULL
@@ -1252,7 +1252,7 @@
                NULL,
                a.tmsseq,
                a.tmtiment
-              FROM   STG.SI_DAT_TMTRAN@STAGING_PRO a
+              FROM   STAGING.SI_DAT_TMTRAN@STAGING_PRO_CORE a
               WHERE  (a.tmsumtrn IS NULL OR a.tmsumtrn <> 'N')
               AND    (a.tmibttrn IS NULL OR a.tmibttrn <> 'Y')
               AND    (a.tmeqvtrn IS NULL OR a.tmeqvtrn <> 'I')
@@ -1712,7 +1712,7 @@
                NULL,
                a.tmsseq,
                a.tmtiment
-              FROM   STG.SI_DAT_TMTRAN@STAGING_PRO a
+              FROM   STAGING.SI_DAT_TMTRAN@STAGING_PRO_CORE a
               WHERE  (a.tmsumtrn IS NULL OR a.tmsumtrn <> 'N')
               AND    (a.tmibttrn IS NULL OR a.tmibttrn <> 'Y')
               AND    (a.tmeqvtrn IS NULL OR a.tmeqvtrn <> 'I')
@@ -2280,7 +2280,7 @@
                      NULL,
                      a.treffd,
                      a.trtime
-              FROM   RAWSTAGEUAT.SI_DAT_DDTRN2@RAWSTAGE_PRO a
+              FROM   RAWSTAGE.SI_DAT_DDTRN2@RAWSTAGE_PRO_CORE a
               WHERE  a.dorc IN ('D',
                                 'C')
               AND    a.trdate = v_checkpoint_date
@@ -2518,7 +2518,7 @@
                  NULL,
                  a.treffd,
                  a.trtime
-          FROM   RAWSTAGEUAT.SI_DAT_DDTRN2@RAWSTAGE_PRO a
+          FROM   RAWSTAGE.SI_DAT_DDTRN2@RAWSTAGE_PRO_CORE a
           WHERE  a.dorc IN ('D',
                             'C')
           AND    TRUNC(TO_DATE(a.trdate,
@@ -2676,7 +2676,7 @@
            TRIM(a.truser),
                      TRIM(a.auxtrc)
           --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-          FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+          FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
           WHERE  TRUNC(TO_DATE(a.trdate,
                                'yyyyddd')) >= TRUNC(SYSDATE - 1)
           AND    a.dorc IN ('D',
@@ -2932,7 +2932,7 @@
                TRIM(a.truser),
                              TRIM(a.auxtrc)
               --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
               WHERE  a.dorc IN ('D',
                                 'C') --AND    a.trancd NOT IN('160','164','165')
               AND    a.trancd NOT IN (77,
@@ -3233,7 +3233,7 @@
                TRIM(a.truser),
                              TRIM(a.AUXTRC)
               --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
               WHERE  a.trdate = (v_checkpoint_date)
               AND    a.dorc IN ('D',
                                 'C')
@@ -3567,7 +3567,7 @@
                TRIM(a.truser),
                              TRIM(a.auxtrc)
               --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
               WHERE  a.trdate = (v_checkpoint_date)
               AND    a.dorc IN ('D',
                                 'C')
@@ -3896,7 +3896,7 @@
                TRIM(a.truser),
                              TRIM(a.auxtrc)
               --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
               WHERE  a.trdate = (v_checkpoint_date)
               AND    a.dorc IN ('D',
                                 'C')
@@ -4217,7 +4217,7 @@
                TRIM(a.truser),
                              TRIM(a.auxtrc)
               --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
               WHERE  TRUNC(TO_DATE(a.trdate,
                                    'yyyyddd')) >= TRUNC(SYSDATE - 1)
               AND    a.dorc IN ('D',
@@ -4466,7 +4466,7 @@
                TRIM(a.truser),
                              TRIM(a.auxtrc)
               --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM   STG.SI_HIS_DDHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
               WHERE  TRUNC(TO_DATE(a.trdate,
                                    'yyyyddd')) >= TRUNC(SYSDATE - 2)
               AND    a.dorc IN ('D',
@@ -5939,7 +5939,7 @@
                a.lhtime,
                a.lhosbl, --anhnt6
                a.lhdudt -- anhnt6
-              FROM   STG.SI_HIS_LNHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_LNHIST@STAGING_PRO_CORE a
               WHERE  a.lhdorc IN ('D',
                                   'C')
               AND    a.lhpstd = (v_checkpoint_date)
@@ -6269,7 +6269,7 @@
                a.lhtime,
                a.lhosbl, --anhnt6
                a.lhdudt -- anhnt6
-              FROM   STG.SI_HIS_LNHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_LNHIST@STAGING_PRO_CORE a
               WHERE  a.lhdorc IN ('D',
                                   'C')
               AND    a.lhpstd = (v_checkpoint_date)
@@ -6578,7 +6578,7 @@
                a.lhtime,
                a.lhosbl, --anhnt6
                a.lhdudt -- anhnt6
-              FROM   STG.SI_HIS_LNHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_LNHIST@STAGING_PRO_CORE a
               WHERE  a.lhdorc IN ('D',
                                   'C')
               AND    a.lhpstd = (v_checkpoint_date)
@@ -6910,7 +6910,7 @@
                a.lhtime,
                a.lhosbl, --anhnt6
                a.lhdudt -- anhnt6
-              FROM   STG.SI_HIS_LNHIST@STAGING_PRO a
+              FROM   STAGING.SI_HIS_LNHIST@STAGING_PRO_CORE a
               WHERE  a.lhdorc IN ('D',
                                   'C')
               --AND    a.lhtran NOT IN (77,

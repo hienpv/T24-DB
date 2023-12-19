@@ -19,7 +19,7 @@ BEGIN
               TRIM(dp2cur),
               TRIM(pscdes),
               'DD'
-       FROM   RAWSTAGEUAT.SI_PAR_DDPAR2@RAWSTAGE_PRO
+       FROM   RAWSTAGE.SI_PAR_DDPAR2@RAWSTAGE_PRO_CORE
        WHERE PSLDES like '%MDB%' or PSCDES like '%MDB%'
        ;
 
@@ -42,7 +42,7 @@ BEGIN
          'CD',
          TRIM(pcurty)
      FROM
-         RAWSTAGEUAT.SI_PAR_CDPAR2@RAWSTAGE_PRO
+         RAWSTAGE.SI_PAR_CDPAR2@RAWSTAGE_PRO_CORE
          WHERE PLDESC like '%MDB%' or pdesc like '%MDB%'
     ;
 
@@ -59,7 +59,7 @@ BEGIN
               TRIM(pgrdsc),
               TRIM(pcurty),
               'LN'
-       FROM   RAWSTAGEUAT.SI_PAR_LNPAR2@RAWSTAGE_PRO
+       FROM   RAWSTAGE.SI_PAR_LNPAR2@RAWSTAGE_PRO_CORE
        WHERE ptydsc LIKE '%MDB%' or pgrdsc  LIKE '%MDB%'
 
     ;

@@ -26,7 +26,7 @@ INSERT INTO sync_cfmast
                a.cfindi,
                /*ADD for update tax code*/
                trim(a.taxcod)
-              FROM   STAGINGUAT.SI_DAT_CFMAST@STAGING_PRO_CORE a where a.cfcifn = PARAM1;
+              FROM   STAGING.SI_DAT_CFMAST@STAGING_PRO_CORE a where a.cfcifn = PARAM1;
 
 
 --b2: dong bao addrr
@@ -34,7 +34,7 @@ INSERT INTO sync_cfaddr
               SELECT a.cfcifn,
                      a.cfadsq,
                      a.cfna2
-              FROM   RAWSTAGEUAT.SI_DAT_CFAGRP@RAWSTAGE_PRO_CORE a
+              FROM   RAWSTAGE.SI_DAT_CFAGRP@RAWSTAGE_PRO_CORE a
               WHERE  a.cfcifn = PARAM1;
 --
 

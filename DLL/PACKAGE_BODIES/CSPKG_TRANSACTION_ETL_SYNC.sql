@@ -534,8 +534,8 @@ IS
                a.lhtime,
                a.lhosbl,
                a.lhdudt
-              FROM   --STAGINGUAT.SI_HIS_LNHIST@STAGING_PRO_CORE a,
-                    STAGINGUAT.SI_HIS_LNHIST@STAGING_PRO_CORE a, --20160426 QuanPD changed STAGING->CORE
+              FROM   --STAGING.SI_HIS_LNHIST@STAGING_PRO_CORE a,
+                    STAGING.SI_HIS_LNHIST@STAGING_PRO_CORE a, --20160426 QuanPD changed STAGING->CORE
                     sync_account_info x
               WHERE  a.lhdorc IN ('D','C')
               AND    a.lhtran IN (912,993,990,914,922,915,121,101,962,974,988,42,41,976,35,15,30,62,61,23,22,21,145,143,497,496,781,889,926,102,811,812,906,43,964)--anhnt6
@@ -1365,8 +1365,8 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
            a.seq,
            TRIM(a.truser),
            TRIM(a.auxtrc)
-          FROM   --STAGINGUAT.si_his_ddhist@STAGING_PRO_core a,
-                STAGINGUAT.SI_HIS_DDHIST@STAGING_PRO_CORE a, --20160426 QuanPD changed STAGING->CORE 
+          FROM   --STAGING.si_his_ddhist@STAGING_PRO_core a,
+                STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a, --20160426 QuanPD changed STAGING->CORE 
       --inner join (select ltrim(acct_no, '0') acct_no from sync_account_info) x
       --on x.acct_no = a.tracct           
                 sync_account_info x

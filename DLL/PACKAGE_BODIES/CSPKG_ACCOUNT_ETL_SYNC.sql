@@ -410,7 +410,7 @@ IS
                 comacc as accrued_common_fee,
                 othchg as other_charges,
                 (case when length(acctno) = 13 then LPAD (acctno, 14, '0') else TO_CHAR(acctno) end) as acct_no
-                from RAWSTAGEUAT.si_dat_lnmemo@RAWSTAGE_PRO_CORE
+                from RAWSTAGE.si_dat_lnmemo@RAWSTAGE_PRO_CORE
 
     )src
     ON (src.acct_no = c.acct_no)
@@ -736,7 +736,7 @@ IS
                     TRIM (acname) as acct_name,
                     (case when length(acctno) = 13 then LPAD (acctno, 14, '0') else TO_CHAR(acctno) end) as acct_no
 
-            from RAWSTAGEUAT.SI_DAT_DDMEMO_N@RAWSTAGE_PRO_CORE --sync_cdc_ddmemo
+            from RAWSTAGE.SI_DAT_DDMEMO_N@RAWSTAGE_PRO_CORE --sync_cdc_ddmemo
             where TRIM (status) IS NOT NULL
 
         )src
@@ -1241,7 +1241,7 @@ PROCEDURE pr_cdmemo_cdc_override
                 cbal as principal,
                 accint as interest_amount,
                 fn_get_account_status_code(status) as status
-                from RAWSTAGEUAT.si_dat_cdmemo@RAWSTAGE_PRO_CORE
+                from RAWSTAGE.si_dat_cdmemo@RAWSTAGE_PRO_CORE
                 WHERE acctno <> 0
                         and status IS NOT NULL
 
@@ -1268,7 +1268,7 @@ PROCEDURE pr_cdmemo_cdc_override
                     'FD' as acct_type,
                     cdnum as p_acct_no,
                     (case when length(acctno) = 13 then LPAD (acctno, 14, '0') else TO_CHAR(acctno) end) as acct_no
-            from RAWSTAGEUAT.si_dat_cdmemo@RAWSTAGE_PRO_CORE
+            from RAWSTAGE.si_dat_cdmemo@RAWSTAGE_PRO_CORE
             where
                     acctno <> 0
                         and status IS NOT NULL

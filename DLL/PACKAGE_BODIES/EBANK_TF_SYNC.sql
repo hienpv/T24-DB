@@ -35,7 +35,7 @@
        t1.tmexpd,
        t1.tmexpj,
        t1.TMOEXJ
-      FROM   RAWSTAGEUAT.SI_DAT_TFMAST@RAWSTAGE_PRO t1;
+      FROM   RAWSTAGEUAT.SI_DAT_TFMAST@RAWSTAGE_PRO_CORE t1;
 
     MERGE INTO bk_tf_info a
     USING (SELECT t1.tmocif,
@@ -272,7 +272,7 @@
               trim(a.PDPGPC),
               trim(a.PDSDES),
               trim(a.PDDESC)
-       FROM   STAGING.SI_PAR_TFPAR2@STAGING_PRO a);
+       FROM   STAGING.SI_PAR_TFPAR2@STAGING_PRO_CORE a);
 
     COMMIT;
 
@@ -311,7 +311,7 @@
              a.hctcur,
              a.hccamt,
              a.hcclcj
-      FROM   STG.SI_DAT_TFHCHR@STAGING_PRO a;
+      FROM   STAGING.SI_DAT_TFHCHR@STAGING_PRO_CORE a;
 
     DELETE FROM bb_tf_charge;
 

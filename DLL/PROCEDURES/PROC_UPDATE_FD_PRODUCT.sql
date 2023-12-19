@@ -15,8 +15,8 @@ set define off;
            PRATE,
            f.JRCRAT Pratem,
            PMINAM
-      from RAWSTAGEUAT.SI_PAR_CDPAR2@RAWSTAGE_PRO d
-     inner join SVPARPV51.ssrate@DBLINK_DATA f
+      from RAWSTAGE.SI_PAR_CDPAR2@RAWSTAGE_PRO_CORE d
+     inner join RAWSTAGE.si_par_ssrate@RAWSTAGE_PRO_CORE f
         on CASE WHEN PRNRT9 =0 THEN 
                 CASE WHEN PRNRT8 =0 THEN 
                     CASE WHEN PRNRT7 =0 THEN 

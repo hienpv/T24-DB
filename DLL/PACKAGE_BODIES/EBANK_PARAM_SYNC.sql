@@ -122,7 +122,7 @@
       (SELECT TRIM(cfidcd),
               TRIM(cfidsc),
               TRIM(cfidct)
-       FROM   RAWSTAGEUAT.SI_PAR_CFIDDF@RAWSTAGE_PRO);
+       FROM   RAWSTAGE.SI_PAR_CFIDDF@RAWSTAGE_PRO_CORE);
 
     COMMIT;
 
@@ -171,7 +171,7 @@
               TRIM(dp2cur),
               TRIM(pscdes),
               'DD'
-       FROM   RAWSTAGEUAT.SI_PAR_DDPAR2@RAWSTAGE_PRO);
+       FROM   RAWSTAGE.SI_PAR_DDPAR2@RAWSTAGE_PRO_CORE);
 
     /* INSERT INTO bk_acct_product_type
     (
@@ -192,7 +192,7 @@
              'CD',
              TRIM(pcurty)
          FROM
-             RAWSTAGEUAT.SI_PAR_CDPAR2@RAWSTAGE_PRO
+             RAWSTAGE.SI_PAR_CDPAR2@RAWSTAGE_PRO
      ); */
 
     /* INSERT INTO bk_receipt_product
@@ -205,7 +205,7 @@
             TRIM(pdesc),
             TRIM(pcurty),
             'ACTV' --active
-     FROM   RAWSTAGEUAT.SI_PAR_CDPAR2@RAWSTAGE_PRO); */
+     FROM   RAWSTAGE.SI_PAR_CDPAR2@RAWSTAGE_PRO); */
 
     INSERT INTO bk_acct_product_type
       (product_type,
@@ -220,7 +220,7 @@
               TRIM(pgrdsc),
               TRIM(pcurty),
               'LN'
-       FROM   RAWSTAGEUAT.SI_PAR_LNPAR2@RAWSTAGE_PRO);
+       FROM   RAWSTAGE.SI_PAR_LNPAR2@RAWSTAGE_PRO_CORE);
 
     COMMIT;
 
@@ -335,7 +335,7 @@
     INSERT INTO sync_currucy
       SELECT a.jfxdsc,
              a.jfxcod
-      FROM   RAWSTAGEUAT.SI_PAR_SSFXRT@RAWSTAGE_PRO a;
+      FROM   RAWSTAGE.SI_PAR_SSFXRT@RAWSTAGE_PRO_CORE a;
 
     MERGE INTO bk_currency c
     USING (SELECT TRIM(jfxcod) jfxcod,
@@ -399,7 +399,7 @@
       SELECT a.vcesec,
              a.vcdesc,
              a.VCSORD
-      FROM   STG.SI_PAR_BVPARC@STAGING_PRO a;
+      FROM   STAGING.SI_PAR_BVPARC@STAGING_PRO_CORE a;
 
     MERGE INTO bk_buss_type c
     USING (SELECT TRIM(vcesec) vcesec,
@@ -470,7 +470,7 @@
              TRIM(a.ssoalm) ssoalm,
              TRIM(a.sscntr) sscntr,
              TRIM(a.ssdept) ssdept
-      FROM   RAWSTAGEUAT.SI_PAR_SSOFFR@RAWSTAGE_PRO a;
+      FROM   RAWSTAGE.SI_PAR_SSOFFR@RAWSTAGE_PRO_CORE a;
 
     MERGE INTO bk_officer a
     USING (SELECT TRIM(b.ssooff) ssooff,
@@ -579,7 +579,7 @@
            a.cfcifn,
            a.cfsnme,
            a.cfbust
-          FROM   STG.SI_DAT_CFMAST@STAGING_PRO a
+          FROM   STAGING.SI_DAT_CFMAST@STAGING_PRO_CORE a
           WHERE  a.cfcifn BETWEEN g_min_count AND g_max_count;
 
         COMMIT;
@@ -612,7 +612,7 @@
            a.cfaccn,
            cfatyp,
            cfoffr
-          FROM   RAWSTAGEUAT.SI_DAT_CFOFFL@RAWSTAGE_PRO a
+          FROM   RAWSTAGE.SI_DAT_CFOFFL@RAWSTAGE_PRO_CORE a
           WHERE  a.cfaccn BETWEEN g_min_count AND g_max_count;
 
         COMMIT;
@@ -730,7 +730,7 @@
            a.cfcifn,
            a.cfsnme,
            a.cfbust
-          FROM   RAWSTAGEUAT.SI_DAT_CFTNEW@RAWSTAGE_PRO a
+          FROM   RAWSTAGE.SI_DAT_CFTNEW@RAWSTAGE_PRO_CORE a
           WHERE  a.cfcifn BETWEEN g_min_count AND g_max_count;
 
         COMMIT;
@@ -767,7 +767,7 @@
            a.cfaccn,
            cfatyp,
            cfoffr
-          FROM   RAWSTAGEUAT.SI_DAT_CFOFFL@RAWSTAGE_PRO a
+          FROM   RAWSTAGE.SI_DAT_CFOFFL@RAWSTAGE_PRO_CORE a
           WHERE  a.cfaccn BETWEEN g_min_count AND g_max_count;
 
         COMMIT;

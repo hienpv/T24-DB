@@ -136,7 +136,7 @@
                 a.sccode,
                 a.rate,
                 a.accrue
-               FROM   RAWSTAGEUAT.SI_DAT_DDMAST@RAWSTAGE_PRO_CORE a
+               FROM   RAWSTAGE.SI_DAT_DDMAST@RAWSTAGE_PRO_CORE a
                --WHERE  a.status <> 2 --svdatpv51.DDMAST@DBLINK_DATA a
                WHERE  /*a.ddctyp = 'VND'
                                                                                  AND*/
@@ -668,7 +668,7 @@
                 b.rate,
                 b.renew,
                 b.dactn
-               FROM   STAGING.SI_DAT_CDMAST@STAGING_PRO b
+               FROM   STAGING.SI_DAT_CDMAST@STAGING_PRO_CORE b
                WHERE
                 ((b.matdt > v_checkpoint_date AND b.status = 2) OR
                -- ((b.stmdt > v_checkpoint_date AND b.status = 2) OR
@@ -1329,7 +1329,7 @@
                       b.cfggbl,
                       b.cfagty,
                       b.cfagd7
-               FROM   RAWSTAGEUAT.SI_DAT_CFAGRP@RAWSTAGE_PRO b
+               FROM   RAWSTAGE.SI_DAT_CFAGRP@RAWSTAGE_PRO_CORE b
                WHERE  /*b.cfgcur = 'VND' --AND    b.cfapcd = 'CD' -- for FD
                                                                                                   --AND    TRIM(b.cfgsts) = 'N'
                                                                                  AND*/
@@ -1672,7 +1672,7 @@
                   b.cfggbl,
                   b.cfagty,
                   b.cfagd7
-           FROM   RAWSTAGEUAT.SI_DAT_CFAGRP@RAWSTAGE_PRO b
+           FROM   RAWSTAGE.SI_DAT_CFAGRP@RAWSTAGE_PRO_CORE b
            WHERE  b.cfagd7 >= v_checkpoint_date --AND b.cfgcur = 'VND'
            --AND    TRIM(b.cfgsts) = 'N'
            --AND    b.cfapcd = 'CD' -- for FD
@@ -2086,7 +2086,7 @@
                b.FRELDT ,
                b.rate,
                trim(b.tmcode)
-              FROM   RAWSTAGEUAT.SI_DAT_LNMAST@RAWSTAGE_PRO b
+              FROM   RAWSTAGE.SI_DAT_LNMAST@RAWSTAGE_PRO_CORE b
               --WHERE  b.status <> 2
               WHERE  /*b.curtyp = 'VND'
                                                                              AND*/
@@ -2636,7 +2636,7 @@
                a.sccode product_type,
                a.rate,
                a.accrue
-              FROM   RAWSTAGEUAT.SI_DAT_DDTNEW@RAWSTAGE_PRO a
+              FROM   RAWSTAGE.SI_DAT_DDTNEW@RAWSTAGE_PRO_CORE a
               WHERE  a.status <> 2
               AND    a.acctno <> 0 --AND a.ddctyp = 'VND'
               AND    a.sccode <> 'CA12OPI'
@@ -3047,7 +3047,7 @@
                b.renew,
                b.dactn,
                b.cdterm
-              FROM   RAWSTAGEUAT.SI_DAT_CDTNEW@RAWSTAGE_PRO b
+              FROM   RAWSTAGE.SI_DAT_CDTNEW@RAWSTAGE_PRO_CORE b
               WHERE  b.status <> 2 --AND b.curtyp = 'VND'
               AND    b.status <> 0
                     --AND    TRIM(b.type) IS NOT NULL;
@@ -3723,7 +3723,7 @@
                b.FRELDT,
                b.rate,
                trim(b.tmcode)
-              FROM   RAWSTAGEUAT.SI_DAT_LNTNEW@RAWSTAGE_PRO b
+              FROM   RAWSTAGE.SI_DAT_LNTNEW@RAWSTAGE_PRO_CORE b
               WHERE  b.status <> 2
                     /*AND b.curtyp = 'VND'*/
               AND    b.cifno BETWEEN g_min_count AND g_max_count;
@@ -4136,7 +4136,7 @@
                 --NULL,
                 --TRIM(a.sccode),
                 TRIM(a.acname)
-               FROM   RAWSTAGEUAT.SI_DAT_DDMEMO_N@RAWSTAGE_PRO a
+               FROM   RAWSTAGE.SI_DAT_DDMEMO_N@RAWSTAGE_PRO_CORE a
                /*WHERE  LPAD(a.acctno,
                14,
                '0') IN (SELECT acct_no
@@ -4434,7 +4434,7 @@
             b.wdrwh,
             b.cdnum,
             b.status
-           FROM   RAWSTAGEUAT.SI_DAT_CDMEMO@RAWSTAGE_PRO b /*WHERE  LPAD(b.acctno,
+           FROM   RAWSTAGE.SI_DAT_CDMEMO@RAWSTAGE_PRO_CORE b /*WHERE  LPAD(b.acctno,
                                                                                               14,
                                                                                               '0') IN (SELECT acct_no
                                                                                                        FROM   sync_account_info)*/
@@ -4734,7 +4734,7 @@
            b.hold,
            b.comacc,
            b.othchg
-          FROM   RAWSTAGEUAT.SI_DAT_LNMEMO@RAWSTAGE_PRO b /*WHERE  LPAD(b.acctno,
+          FROM   RAWSTAGE.SI_DAT_LNMEMO@RAWSTAGE_PRO_CORE b /*WHERE  LPAD(b.acctno,
                                                                                           14,
                                                                                           '0') IN (SELECT acct_no
                                                                                                    FROM   sync_account_info)*/
@@ -4974,22 +4974,22 @@
   PROCEDURE proc_ddmaster IS
   BEGIN
   execute immediate 'truncate table DDMASTER';
-  insert into DDMASTER (select ACCTNO,actype,cbal from RAWSTAGEUAT.SI_DAT_DDMAST@RAWSTAGE_PRO where status != 2);
-  insert into DDMASTER (select ACCTNO,actype,cbal from RAWSTAGEUAT.SI_DAT_DDTNEW@RAWSTAGE_PRO where status != 2);
+  insert into DDMASTER (select ACCTNO,actype,cbal from RAWSTAGE.SI_DAT_DDMAST@RAWSTAGE_PRO_CORE where status != 2);
+  insert into DDMASTER (select ACCTNO,actype,cbal from RAWSTAGE.SI_DAT_DDTNEW@RAWSTAGE_PRO_CORE where status != 2);
   END;
 
   PROCEDURE proc_cdmaster IS
   BEGIN
       execute immediate 'truncate table CDMASTER';
-  insert into CDMASTER (select ACCTNO,actype,cbal from STAGING.SI_DAT_CDMAST@STAGING_PRO where status != 2);
-  insert into CDMASTER (select ACCTNO,actype,cbal from RAWSTAGEUAT.SI_DAT_CDTNEW@RAWSTAGE_PRO where status != 2);
+  insert into CDMASTER (select ACCTNO,actype,cbal from STAGING.SI_DAT_CDMAST@STAGING_PRO_CORE where status != 2);
+  insert into CDMASTER (select ACCTNO,actype,cbal from RAWSTAGE.SI_DAT_CDTNEW@RAWSTAGE_PRO_CORE where status != 2);
   END;
 
     PROCEDURE proc_lnmaster IS
   BEGIN
   execute immediate 'truncate table LNMASTER';
-  insert into LNMASTER (select ACCTNO,actype,cbal from RAWSTAGEUAT.SI_DAT_LNMAST@RAWSTAGE_PRO where status != 2);
-  insert into LNMASTER (select ACCTNO,actype,cbal from RAWSTAGEUAT.SI_DAT_LNTNEW@RAWSTAGE_PRO where status != 2);
+  insert into LNMASTER (select ACCTNO,actype,cbal from RAWSTAGE.SI_DAT_LNMAST@RAWSTAGE_PRO_CORE where status != 2);
+  insert into LNMASTER (select ACCTNO,actype,cbal from RAWSTAGE.SI_DAT_LNTNEW@RAWSTAGE_PRO_CORE where status != 2);
   END;
 
 
