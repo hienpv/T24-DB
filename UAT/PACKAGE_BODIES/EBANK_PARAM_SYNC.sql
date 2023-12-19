@@ -53,7 +53,7 @@
             jfxart,
             TRIM(jfxbkc) jfxbkc,
             jfxcno
-           FROM sync_ssfxrtl1) a
+           FROM SYNC_SSFXRT) a
     ON (a.jfxcod = TRIM(c.receipt_ccy))
     WHEN MATCHED THEN
       UPDATE

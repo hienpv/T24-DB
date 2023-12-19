@@ -34,7 +34,7 @@ INSERT INTO sync_cfaddr
               SELECT a.cfcifn,
                      a.cfadsq,
                      a.cfna2
-              FROM   svdatpv51.cfaddr@dblink_data a
+              FROM   RAWSTAGEUAT.SI_DAT_CFAGRP@RAWSTAGE_PRO_CORE a
               WHERE  a.cfcifn = PARAM1;
 --
 

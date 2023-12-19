@@ -136,7 +136,7 @@
                 a.sccode,
                 a.rate,
                 a.accrue
-               FROM   RAWSTAGEUAT.SI_DAT_DDMAST@RAWSTAGE_PRO a
+               FROM   RAWSTAGEUAT.SI_DAT_DDMAST@RAWSTAGE_PRO_CORE a
                --WHERE  a.status <> 2 --svdatpv51.DDMAST@DBLINK_DATA a
                WHERE  /*a.ddctyp = 'VND'
                                                                                  AND*/

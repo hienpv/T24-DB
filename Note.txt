@@ -1,1 +1,11 @@
 CSPKG_ACCOUNT_ETL_SYNC.sql
+CSPKG_ACCOUNT_SYNC.sql
+CSPKG_ACCOUNT_SYNC_247.sql
+CSPKG_BALANCE_PERIOD_SYNC.sql
+CSPKG_CIF_SYNC.sql
+
+
+
+db Link: svdatpv51.tmpbmast@dblink_data a
+		 svhispv51.lnhist@dblink_data
+		 SVPARPV51.ssrate@DBLINK_DATA f

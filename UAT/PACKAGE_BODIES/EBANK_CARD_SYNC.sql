@@ -222,23 +222,23 @@
                       GROUP  BY eccard
                       HAVING COUNT(1) > 1); */
     g_error_level := 2;
-    INSERT INTO sync_card_info_t
-      SELECT *
-      FROM   sync_card_info sci
-      WHERE  sci.eccard NOT IN (SELECT sci2.eccard
-                                FROM   sync_card_info sci2
-                                GROUP  BY sci2.eccard
-                                HAVING COUNT(1) > 1)
-      AND    TRIM(sci.eccif) IN
-             (SELECT LPAD(bui.cif_no,
-                           19,
-                           '0')
-               FROM   bc_user_info bui)
-      --AND    sci.eccsts <> 'DELT'
-      AND    TRIM(sci.eccrty) IS NULL
-      AND    sci.eccif IS NOT NULL
-      AND    sci.eccard IS NOT NULL
-      AND    sci.eccsts IS NOT NULL;
+--    INSERT INTO sync_card_info_t
+--      SELECT *
+--      FROM   sync_card_info sci
+--      WHERE  sci.eccard NOT IN (SELECT sci2.eccard
+--                                FROM   sync_card_info sci2
+--                                GROUP  BY sci2.eccard
+--                                HAVING COUNT(1) > 1)
+--      AND    TRIM(sci.eccif) IN
+--             (SELECT LPAD(bui.cif_no,
+--                           19,
+--                           '0')
+--               FROM   bc_user_info bui)
+--      --AND    sci.eccsts <> 'DELT'
+--      AND    TRIM(sci.eccrty) IS NULL
+--      AND    sci.eccif IS NOT NULL
+--      AND    sci.eccard IS NOT NULL
+--      AND    sci.eccsts IS NOT NULL;
   
     /*g_error_level := 3;
     SELECT

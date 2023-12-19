@@ -10,7 +10,7 @@
       select a.CURRENCY, trim(b.jfxitc) JFXITC, b.JFXBRT, b.JFXSRT, b.JFXMRT  
       from bb_currency_config a
       left join RAWSTAGEUAT.SI_PAR_SSFXRT@RAWSTAGE_PRO b on a.CURRENCY = trim(b.jfxitc)
-      where a.CURRENCY is not null and trim(b.jfxitc) is not null
+      where a.CURRENCY is not null
     )
     LOOP
       update bb_currency_config
