@@ -1,8 +1,528 @@
---------------------------------------------------------
---  DDL for Package Body CSPKG_ACCOUNT_SYNC
---------------------------------------------------------
+CREATE OR REPLACE PACKAGE "CSPKG_ACCOUNT_SYNC" 
+IS
+/*----------------------------------------------------------------------------------------------------
+ ** Module   : COMMODITY SYSTEM
+ ** and is copyrighted by FSS.
+ **
+ **    All rights reserved.  No part of this work may be reproduced, stored in a retrieval system,
+ **    adopted or transmitted in any form or by any means, electronic, mechanical, photographic,
+ **    graphic, optic recording or otherwise, translated in any language or computer language,
+ **    without the prior written permission of Financial Software Solutions. JSC.
+ **
+ **  MODIFICATION HISTORY
+ **  Person      Date           Comments
+ **  HaoNS      09-SEP-2014    Created
+ ** (c) 2014 by Financial Software Solutions. JSC.
+ ----------------------------------------------------------------------------------------------------*/
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_ACCOUNT_SYNC" 
+    c_bank_no CONSTANT VARCHAR2(10) := '302';
+
+      PROCEDURE pr_cdmemo_sync (dm_operation_type in CHAR,
+                              orchestrate_acctno in NUMBER,
+                              orchestrate_curtyp in VARCHAR,
+                              orchestrate_cbal in NUMBER,
+                              orchestrate_accint in NUMBER,
+                              orchestrate_penamt in NUMBER,
+                              orchestrate_hold in NUMBER,
+                              orchestrate_wdrwh in NUMBER,
+                              orchestrate_cdnum in NUMBER,
+                              orchestrate_status in NUMBER);
+
+      PROCEDURE pr_cdtnew_sync( dm_operation_type in CHAR,
+                          orchestrate_bankno in NUMBER,
+                          orchestrate_brn in VARCHAR,
+                          orchestrate_curtyp in VARCHAR,
+                          orchestrate_cifno in NUMBER,
+                          orchestrate_orgbal in NUMBER,
+                          orchestrate_cbal in NUMBER,
+                          orchestrate_accint in NUMBER,
+                          orchestrate_penamt in NUMBER,
+                          orchestrate_hold in NUMBER,
+                          orchestrate_wdrwh in NUMBER,
+                          orchestrate_cdnum in NUMBER,
+                          orchestrate_issdt in NUMBER,
+                          orchestrate_matdt in NUMBER,
+                          orchestrate_rnwctr in NUMBER,
+                          orchestrate_status in NUMBER,
+                          orchestrate_acname in VARCHAR,
+                          orchestrate_acctno in NUMBER,
+                          orchestrate_type in VARCHAR,
+                          orchestrate_rate in NUMBER,
+                          orchestrate_renew in VARCHAR,
+                          orchestrate_dactn in NUMBER,
+                          orchestrate_cdterm in NUMBER,
+                          orchestrate_cdmuid in VARCHAR,
+                          orchestrate_cdtermcode in VARCHAR);
+
+
+      PROCEDURE pr_ddtnew_sync (dm_operation_type IN CHAR,
+                                orchestrate_before_cifno IN NUMBER, --#20160921 LocTx add for cif change
+                                orchestrate_branch  IN VARCHAR,
+                                orchestrate_acctno IN NUMBER,
+                                orchestrate_actype IN VARCHAR,
+                                orchestrate_ddctyp IN VARCHAR,
+                                orchestrate_cifno  IN NUMBER,
+                                orchestrate_status  IN NUMBER,
+                                orchestrate_hold IN NUMBER,
+                                orchestrate_cbal IN NUMBER,
+                                orchestrate_odlimt IN NUMBER,
+                                orchestrate_rate  IN NUMBER,
+                                orchestrate_acname IN VARCHAR,
+                                orchestrate_sccode IN VARCHAR,
+                                orchestrate_datop7 IN NUMBER,
+                                orchestrate_accrue IN NUMBER);
+
+
+
+     PROCEDURE pr_lntnew_sync (dm_operation_type in CHAR,
+                              orchestrate_brn in CHAR,
+                              orchestrate_accint in NUMBER,
+                              orchestrate_cifno in NUMBER,
+                              orchestrate_lnnum in NUMBER,
+                              orchestrate_acctno in NUMBER,
+                              orchestrate_purcod in VARCHAR,
+                              orchestrate_curtyp in VARCHAR,
+                              orchestrate_orgamt in NUMBER,
+                              orchestrate_cbal in NUMBER,
+                              orchestrate_ysobal in NUMBER,
+                              orchestrate_billco in NUMBER,
+                              orchestrate_freq in NUMBER,
+                              orchestrate_ipfreq in NUMBER,
+                              orchestrate_fulldt in NUMBER,
+                              orchestrate_status in NUMBER,
+                              orchestrate_odind in VARCHAR,
+                              orchestrate_bilesc in NUMBER,
+                              orchestrate_biloc in NUMBER,
+                              orchestrate_bilmc in NUMBER,
+                              orchestrate_bilprn in NUMBER,
+                              orchestrate_bilint in NUMBER,
+                              orchestrate_billc in NUMBER,
+                              orchestrate_pmtamt in NUMBER,
+                              orchestrate_fnlpmt in NUMBER,
+                              orchestrate_drlimt in NUMBER,
+                              orchestrate_hold in NUMBER,
+                              orchestrate_accmlc in VARCHAR,
+                              orchestrate_comacc in NUMBER,
+                              orchestrate_othchg in NUMBER,
+                              orchestrate_acname in VARCHAR,
+                              orchestrate_type in VARCHAR,
+                              orchestrate_datopn in NUMBER,
+                              orchestrate_matdt in NUMBER,
+                              orchestrate_freldt in VARCHAR,
+                              orchestrate_rate in VARCHAR,
+                              orchestrate_term in NUMBER,
+                              orchestrate_tmcode in VARCHAR,
+                            orchestrate_before_acctno in NUMBER,
+                            orchestrate_before_cifno in NUMBER);
+
+      PROCEDURE pr_ddmemo_sync (dm_operation_type in CHAR,
+                                orchestrate_before_cifno IN NUMBER, --#20160921 LocTx add for cif change
+                                orchestrate_cifno IN NUMBER, --#20160921 LocTx add for cif change
+                                orchestrate_acctno IN NUMBER,
+                                orchestrate_status IN NUMBER,
+                                orchestrate_hold IN NUMBER,
+                                orchestrate_cbal IN NUMBER,
+                                orchestrate_odlimt IN NUMBER,
+                                orchestrate_acname IN VARCHAR2,
+                                orchestrate_dla7 IN NUMBER
+                                );
+
+
+       PROCEDURE pr_cdgroup_sync(dm_operation_type IN CHAR,
+                                  orchestrate_cfgnam IN VARCHAR,
+                                  orchestrate_cfgcur IN VARCHAR,
+                                  orchestrate_cfagd7 IN NUMBER,
+                                  orchestrate_cfgsts IN CHAR,
+                                  orchestrate_cfagno IN NUMBER,
+                                  orchestrate_cfcifn IN NUMBER);
+
+
+      PROCEDURE pr_lnmemo_sync (dm_operation_type in CHAR,
+                              orchestrate_accint IN NUMBER,
+                              orchestrate_curtyp IN VARCHAR,
+                              orchestrate_cbal IN NUMBER,
+                              orchestrate_bilprn IN NUMBER ,
+                              orchestrate_bilint IN NUMBER,
+                              orchestrate_billc IN NUMBER,
+                              orchestrate_bilesc IN NUMBER ,
+                              orchestrate_biloc IN NUMBER,
+                              orchestrate_bilmc IN NUMBER,
+                              orchestrate_drlimt IN NUMBER,
+                              orchestrate_hold IN NUMBER,
+                              orchestrate_comacc IN NUMBER,
+                              orchestrate_othchg IN NUMBER,
+                              orchestrate_acctno IN NUMBER);
+
+
+
+
+
+
+
+      PROCEDURE pr_cdmast_sync (dm_operation_type in CHAR,
+                              orchestrate_before_status in NUMBER,
+                              orchestrate_before_acname IN VARCHAR2,
+                              --orchestrate_before_type IN VARCHAR2,
+                              --orchestrate_before_brn IN NUMBER,
+                              orchestrate_before_cifno IN NUMBER, --20160830 QuanPD Add
+                              --orchestrate_before_hold IN NUMBER,
+                              --orchestrate_before_cdnum IN NUMBER,
+                              --orchestrate_before_rate IN NUMBER,
+
+                              orchestrate_acctno IN NUMBER,
+                              orchestrate_status IN NUMBER,
+                              orchestrate_acname IN VARCHAR2,
+                              orchestrate_cdtcod IN CHAR,
+                              --orchestrate_type IN VARCHAR2,
+                              --orchestrate_brn IN NUMBER,
+                              orchestrate_cifno IN NUMBER --20160830 QuanPD Add
+                              --orchestrate_hold IN NUMBER,
+                              --orchestrate_cdnum IN NUMBER,
+                              --orchestrate_rate IN NUMBER
+                              );
+
+      PROCEDURE pr_lnmast_sync (dm_operation_type in CHAR,
+                              orchestrate_before_status in NUMBER,
+                              --orchestrate_before_acname IN VARCHAR2,
+                              orchestrate_before_type IN VARCHAR2,
+                              --orchestrate_before_brn IN NUMBER,
+                              orchestrate_before_cifno IN NUMBER,--#20160921 lOCTX AD
+                              orchestrate_before_orgamt IN NUMBER,
+                              orchestrate_before_term IN NUMBER,
+                              orchestrate_before_tmcode IN VARCHAR2,
+                              orchestrate_before_pmtamt IN NUMBER,
+                              orchestrate_before_fnlpmt IN NUMBER,
+                              --orchestrate_before_offcr VARCHAR2,
+                              orchestrate_before_rate IN NUMBER,
+                              orchestrate_acctno IN NUMBER,
+                              orchestrate_status IN NUMBER,
+                              --orchestrate_acname IN VARCHAR2,
+                              orchestrate_type IN VARCHAR2,
+                              --orchestrate_brn IN NUMBER,
+                              orchestrate_cifno IN NUMBER,--#20160921 lOCTX AD
+                              orchestrate_orgamt IN NUMBER,
+                              orchestrate_term IN NUMBER,
+                              orchestrate_tmcode IN VARCHAR2,
+                              orchestrate_pmtamt IN NUMBER,
+                              orchestrate_fnlpmt IN NUMBER,
+                              --orchestrate_offcr VARCHAR2,
+                              orchestrate_rate IN NUMBER
+                              );
+
+      FUNCTION  fn_cdmemo_process (
+                                      dm_operation_type   IN CHAR,
+                                      orchestrate_acctno  IN NUMBER,
+                                      orchestrate_curtyp  IN VARCHAR,
+                                      orchestrate_cbal    IN NUMBER,
+                                      orchestrate_accint  IN NUMBER,
+                                      orchestrate_penamt  IN NUMBER,
+                                      orchestrate_hold    IN NUMBER,
+                                      orchestrate_wdrwh   IN NUMBER,
+                                      orchestrate_cdnum   IN NUMBER,
+                                      orchestrate_status  IN NUMBER,
+                                      p_first_process_ind IN CHAR
+                                  )
+      RETURN NUMBER;
+/*
+      PROCEDURE pr_ddmast_sync (dm_operation_type in CHAR,
+                              orchestrate_before_status IN NUMBER,
+                              orchestrate_before_acname  IN VARCHAR2,
+                              orchestrate_before_cifno IN NUMBER, --20150824 QuanPD Add
+                              orchestrate_before_branch IN NUMBER,--20150824 QuanPD Add
+                              orchestrate_acctno IN NUMBER,
+                              orchestrate_status IN NUMBER,
+                              orchestrate_acname IN VARCHAR2,
+                              orchestrate_cifno IN NUMBER, --20150824 QuanPD Add
+                              orchestrate_branch IN NUMBER --20150824 QuanPD Add
+                              );
+*/
+--- update tk chuyen thu/chuyen chi 17/3/2016
+PROCEDURE pr_ddmast_sync (dm_operation_type in CHAR,
+                            orchestrate_before_status IN NUMBER,
+                            orchestrate_before_acname  IN VARCHAR2,
+                            orchestrate_before_cifno IN NUMBER, --20150824 QuanPD Add
+                            orchestrate_before_branch IN VARCHAR,--20150824 QuanPD Add
+                            orchestrate_before_odlimt IN NUMBER, --20160121 QuanPD Add
+                            orchestrate_acctno IN NUMBER,
+                            orchestrate_status IN NUMBER,
+                            orchestrate_acname IN VARCHAR2,
+                            orchestrate_cifno IN NUMBER, --20150824 QuanPD Add
+                            orchestrate_branch IN VARCHAR, --20150824 QuanPD Add
+                            orchestrate_odlimt IN NUMBER, --20160121 QuanPD Add
+                            orchestrate_dla7 IN NUMBER --20160121 QuanPD Add
+                            );
+
+
+END;
+
+
+
+
+----
+----
+
+
+
+/*CREATE OR REPLACE PACKAGE cspkg_account_sync
+IS
+\*----------------------------------------------------------------------------------------------------
+ ** Module   : COMMODITY SYSTEM
+ ** and is copyrighted by FSS.
+ **
+ **    All rights reserved.  No part of this work may be reproduced, stored in a retrieval system,
+ **    adopted or transmitted in any form or by any means, electronic, mechanical, photographic,
+ **    graphic, optic recording or otherwise, translated in any language or computer language,
+ **    without the prior written permission of Financial Software Solutions. JSC.
+ **
+ **  MODIFICATION HISTORY
+ **  Person      Date           Comments
+ **  HaoNS      09-SEP-2014    Created
+ ** (c) 2014 by Financial Software Solutions. JSC.
+ ----------------------------------------------------------------------------------------------------*\
+
+    c_bank_no CONSTANT VARCHAR2(10) := '302';
+
+      PROCEDURE pr_cdmemo_sync (dm_operation_type in CHAR,
+                              orchestrate_acctno in NUMBER,
+                              orchestrate_curtyp in VARCHAR,
+                              orchestrate_cbal in NUMBER,
+                              orchestrate_accint in NUMBER,
+                              orchestrate_penamt in NUMBER,
+                              orchestrate_hold in NUMBER,
+                              orchestrate_wdrwh in NUMBER,
+                              orchestrate_cdnum in NUMBER,
+                              orchestrate_status in NUMBER);
+
+      PROCEDURE pr_cdtnew_sync( dm_operation_type in CHAR,
+                          orchestrate_bankno in NUMBER,
+                          orchestrate_brn in NUMBER,
+                          orchestrate_curtyp in VARCHAR,
+                          orchestrate_cifno in NUMBER,
+                          orchestrate_orgbal in NUMBER,
+                          orchestrate_cbal in NUMBER,
+                          orchestrate_accint in NUMBER,
+                          orchestrate_penamt in NUMBER,
+                          orchestrate_hold in NUMBER,
+                          orchestrate_wdrwh in NUMBER,
+                          orchestrate_cdnum in NUMBER,
+                          orchestrate_issdt in NUMBER,
+                          orchestrate_matdt in NUMBER,
+                          orchestrate_rnwctr in NUMBER,
+                          orchestrate_status in NUMBER,
+                          orchestrate_acname in VARCHAR,
+                          orchestrate_acctno in NUMBER,
+                          orchestrate_type in VARCHAR,
+                          orchestrate_rate in NUMBER,
+                          orchestrate_renew in VARCHAR,
+                          orchestrate_dactn in NUMBER,
+                          orchestrate_cdterm in NUMBER,
+                          orchestrate_cdmuid in VARCHAR);
+
+
+      PROCEDURE pr_ddtnew_sync (dm_operation_type IN CHAR,
+                                orchestrate_before_cifno IN NUMBER, --#20160921 LocTx add for cif change
+                                orchestrate_branch  IN NUMBER,
+                                orchestrate_acctno IN NUMBER,
+                                orchestrate_actype IN VARCHAR,
+                                orchestrate_ddctyp IN VARCHAR,
+                                orchestrate_cifno  IN NUMBER,
+                                orchestrate_status  IN NUMBER,
+                                orchestrate_hold IN NUMBER,
+                                orchestrate_cbal IN NUMBER,
+                                orchestrate_odlimt IN NUMBER,
+                                orchestrate_rate  IN NUMBER,
+                                orchestrate_acname IN VARCHAR,
+                                orchestrate_sccode IN VARCHAR,
+                                orchestrate_datop7 IN NUMBER,
+                                orchestrate_accrue IN NUMBER);
+
+
+
+     PROCEDURE pr_lntnew_sync (dm_operation_type in CHAR,
+                              orchestrate_brn in NUMBER,
+                              orchestrate_accint in NUMBER,
+                              orchestrate_cifno in NUMBER,
+                              orchestrate_lnnum in NUMBER,
+                              orchestrate_acctno in NUMBER,
+                              orchestrate_purcod in VARCHAR,
+                              orchestrate_curtyp in VARCHAR,
+                              orchestrate_orgamt in NUMBER,
+                              orchestrate_cbal in NUMBER,
+                              orchestrate_ysobal in NUMBER,
+                              orchestrate_billco in NUMBER,
+                              orchestrate_freq in NUMBER,
+                              orchestrate_ipfreq in NUMBER,
+                              orchestrate_fulldt in NUMBER,
+                              orchestrate_status in NUMBER,
+                              orchestrate_odind in VARCHAR,
+                              orchestrate_bilesc in NUMBER,
+                              orchestrate_biloc in NUMBER,
+                              orchestrate_bilmc in NUMBER,
+                              orchestrate_bilprn in NUMBER,
+                              orchestrate_bilint in NUMBER,
+                              orchestrate_billc in NUMBER,
+                              orchestrate_pmtamt in NUMBER,
+                              orchestrate_fnlpmt in NUMBER,
+                              orchestrate_drlimt in NUMBER,
+                              orchestrate_hold in NUMBER,
+                              orchestrate_accmlc in VARCHAR,
+                              orchestrate_comacc in NUMBER,
+                              orchestrate_othchg in NUMBER,
+                              orchestrate_acname in VARCHAR,
+                              orchestrate_type in VARCHAR,
+                              orchestrate_datopn in NUMBER,
+                              orchestrate_matdt in NUMBER,
+                              orchestrate_freldt in VARCHAR,
+                              orchestrate_rate in VARCHAR,
+                              orchestrate_term in NUMBER,
+                              orchestrate_tmcode in VARCHAR,
+                            orchestrate_before_acctno in NUMBER,
+                            orchestrate_before_cifno in NUMBER);
+
+      PROCEDURE pr_ddmemo_sync (dm_operation_type in CHAR,
+                                orchestrate_before_cifno IN NUMBER, --#20160921 LocTx add for cif change
+                                orchestrate_cifno IN NUMBER, --#20160921 LocTx add for cif change
+                                orchestrate_acctno IN NUMBER,
+                                orchestrate_status IN NUMBER,
+                                orchestrate_hold IN NUMBER,
+                                orchestrate_cbal IN NUMBER,
+                                orchestrate_odlimt IN NUMBER,
+                                orchestrate_acname IN VARCHAR2,
+                                orchestrate_dla7 IN NUMBER
+                                );
+
+
+       PROCEDURE pr_cdgroup_sync(dm_operation_type IN CHAR,
+                                  orchestrate_cfgnam IN VARCHAR,
+                                  orchestrate_cfgcur IN VARCHAR,
+                                  orchestrate_cfagd7 IN NUMBER,
+                                  orchestrate_cfgsts IN CHAR,
+                                  orchestrate_cfagno IN NUMBER,
+                                  orchestrate_cfcifn IN NUMBER);
+
+
+      PROCEDURE pr_lnmemo_sync (dm_operation_type in CHAR,
+                              orchestrate_accint IN NUMBER,
+                              orchestrate_curtyp IN VARCHAR,
+                              orchestrate_cbal IN NUMBER,
+                              orchestrate_bilprn IN NUMBER ,
+                              orchestrate_bilint IN NUMBER,
+                              orchestrate_billc IN NUMBER,
+                              orchestrate_bilesc IN NUMBER ,
+                              orchestrate_biloc IN NUMBER,
+                              orchestrate_bilmc IN NUMBER,
+                              orchestrate_drlimt IN NUMBER,
+                              orchestrate_hold IN NUMBER,
+                              orchestrate_comacc IN NUMBER,
+                              orchestrate_othchg IN NUMBER,
+                              orchestrate_acctno IN NUMBER);
+
+
+
+
+
+
+
+      PROCEDURE pr_cdmast_sync (dm_operation_type in CHAR,
+                              orchestrate_before_status in NUMBER,
+                              orchestrate_before_acname IN VARCHAR2,
+                              --orchestrate_before_type IN VARCHAR2,
+                              --orchestrate_before_brn IN NUMBER,
+                              orchestrate_before_cifno IN NUMBER, --20160830 QuanPD Add
+                              --orchestrate_before_hold IN NUMBER,
+                              --orchestrate_before_cdnum IN NUMBER,
+                              --orchestrate_before_rate IN NUMBER,
+
+                              orchestrate_acctno IN NUMBER,
+                              orchestrate_status IN NUMBER,
+                              orchestrate_acname IN VARCHAR2,
+                              orchestrate_cdtcod IN CHAR,
+                              --orchestrate_type IN VARCHAR2,
+                              --orchestrate_brn IN NUMBER,
+                              orchestrate_cifno IN NUMBER --20160830 QuanPD Add
+                              --orchestrate_hold IN NUMBER,
+                              --orchestrate_cdnum IN NUMBER,
+                              --orchestrate_rate IN NUMBER
+                              );
+
+      PROCEDURE pr_lnmast_sync (dm_operation_type in CHAR,
+                              orchestrate_before_status in NUMBER,
+                              --orchestrate_before_acname IN VARCHAR2,
+                              orchestrate_before_type IN VARCHAR2,
+                              --orchestrate_before_brn IN NUMBER,
+                              orchestrate_before_cifno IN NUMBER,--#20160921 lOCTX AD
+                              orchestrate_before_orgamt IN NUMBER,
+                              orchestrate_before_term IN NUMBER,
+                              orchestrate_before_tmcode IN VARCHAR2,
+                              orchestrate_before_pmtamt IN NUMBER,
+                              orchestrate_before_fnlpmt IN NUMBER,
+                              --orchestrate_before_offcr VARCHAR2,
+                              orchestrate_before_rate IN NUMBER,
+                              orchestrate_acctno IN NUMBER,
+                              orchestrate_status IN NUMBER,
+                              --orchestrate_acname IN VARCHAR2,
+                              orchestrate_type IN VARCHAR2,
+                              --orchestrate_brn IN NUMBER,
+                              orchestrate_cifno IN NUMBER,--#20160921 lOCTX AD
+                              orchestrate_orgamt IN NUMBER,
+                              orchestrate_term IN NUMBER,
+                              orchestrate_tmcode IN VARCHAR2,
+                              orchestrate_pmtamt IN NUMBER,
+                              orchestrate_fnlpmt IN NUMBER,
+                              --orchestrate_offcr VARCHAR2,
+                              orchestrate_rate IN NUMBER
+                              );
+
+      FUNCTION  fn_cdmemo_process (
+                                      dm_operation_type   IN CHAR,
+                                      orchestrate_acctno  IN NUMBER,
+                                      orchestrate_curtyp  IN VARCHAR,
+                                      orchestrate_cbal    IN NUMBER,
+                                      orchestrate_accint  IN NUMBER,
+                                      orchestrate_penamt  IN NUMBER,
+                                      orchestrate_hold    IN NUMBER,
+                                      orchestrate_wdrwh   IN NUMBER,
+                                      orchestrate_cdnum   IN NUMBER,
+                                      orchestrate_status  IN NUMBER,
+                                      p_first_process_ind IN CHAR
+                                  )
+      RETURN NUMBER;
+\*
+      PROCEDURE pr_ddmast_sync (dm_operation_type in CHAR,
+                              orchestrate_before_status IN NUMBER,
+                              orchestrate_before_acname  IN VARCHAR2,
+                              orchestrate_before_cifno IN NUMBER, --20150824 QuanPD Add
+                              orchestrate_before_branch IN NUMBER,--20150824 QuanPD Add
+                              orchestrate_acctno IN NUMBER,
+                              orchestrate_status IN NUMBER,
+                              orchestrate_acname IN VARCHAR2,
+                              orchestrate_cifno IN NUMBER, --20150824 QuanPD Add
+                              orchestrate_branch IN NUMBER --20150824 QuanPD Add
+                              );
+*\
+--- update tk chuyen thu/chuyen chi 17/3/2016
+PROCEDURE pr_ddmast_sync (dm_operation_type in CHAR,
+                            orchestrate_before_status IN NUMBER,
+                            orchestrate_before_acname  IN VARCHAR2,
+                            orchestrate_before_cifno IN NUMBER, --20150824 QuanPD Add
+                            orchestrate_before_branch IN NUMBER,--20150824 QuanPD Add
+                            orchestrate_before_odlimt IN NUMBER, --20160121 QuanPD Add
+                            orchestrate_acctno IN NUMBER,
+                            orchestrate_status IN NUMBER,
+                            orchestrate_acname IN VARCHAR2,
+                            orchestrate_cifno IN NUMBER, --20150824 QuanPD Add
+                            orchestrate_branch IN NUMBER, --20150824 QuanPD Add
+                            orchestrate_odlimt IN NUMBER, --20160121 QuanPD Add
+                            orchestrate_dla7 IN NUMBER --20160121 QuanPD Add
+                            );
+
+
+END;
+*/
+/
+
+
+CREATE OR REPLACE PACKAGE BODY "CSPKG_ACCOUNT_SYNC" 
 /* Formatted on 09-Oct-2014 12:35:16 (QP5 v5.160) */
 IS
     /*----------------------------------------------------------------------------------------------------
@@ -717,14 +1237,16 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNMAST (dm_operation_type    , orchestrate_bef
                               orchestrate_cifno AS cifno,
                               l_acct_status status,
                               TO_DATE (orchestrate_datop7, 'yyyyddd') AS issued_date,
-                              orchestrate_hold AS hold,
-                              orchestrate_cbal AS cbal,
-                              orchestrate_odlimt AS odlimt,
+                              nvl(b.hold, orchestrate_hold)  AS hold,
+                              nvl(b.cbal, orchestrate_cbal)  AS cbal,
+                              nvl(b.odlimt, orchestrate_odlimt) AS odlimt,
                               TRIM(orchestrate_acname) acname,
                               TRIM (orchestrate_sccode) product_type,
                               orchestrate_rate AS rate,
                               orchestrate_accrue AS accrue
-                        FROM dual
+                        FROM dual 
+                        left join RAWSTAGE.T24_ddmemo@RAWSTAGE_PRO_CORE b
+                        on b.acctno = orchestrate_acctno
                         WHERE (SUBSTR(l_acct_no, 4, 2) <> '31'
                         -- 20171011 QuanDH : Lay them TK Ky quy '31' voi sscode = 'R-CATCSTK' 
                           or (  
@@ -1259,8 +1781,8 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNMAST (dm_operation_type    , orchestrate_bef
                         USING   (SELECT
                                           l_acc_no AS acctno,
                                           orchestrate_cdterm AS cdterm,
-                                          orchestrate_orgbal AS orgbal,
-                                          orchestrate_accint AS accint,
+                                          orchestrate_orgbal AS orgbal,                                          
+                                          nvl(b.accint, orchestrate_accint) AS accint,
                                           l_cdnum AS cdnum,
                                           orchestrate_issdt AS issdt,
                                           CASE WHEN orchestrate_matdt =0 THEN NULL
@@ -1271,10 +1793,12 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNMAST (dm_operation_type    , orchestrate_bef
                                           TRIM (orchestrate_renew) renew,
                                           orchestrate_dactn AS dactn,
                                           orchestrate_rate AS rate ,
-                                          orchestrate_cbal AS cbal,
+                                          nvl(b.cbal, orchestrate_cbal) AS cbal,
                                           orchestrate_cdtermcode as term_code,
                                           TRIM (orchestrate_type) core_product_code
-                                   FROM   DUAL
+                                  FROM   DUAL a
+                                  left join RAWSTAGE.si_dat_cdmemo@RAWSTAGE_PRO_CORE b
+                                  on b.acctno = orchestrate_acctno
                                   WHERE TRIM (orchestrate_status) IS NOT NULL
                                           AND TRIM (p_product_code) IS NOT NULL
                                           AND orchestrate_status <> 2 --AND b.curtyp = 'VND'
@@ -1322,12 +1846,12 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNMAST (dm_operation_type    , orchestrate_bef
                                           orchestrate_cifno AS cifno,
                                           orchestrate_cdterm AS cdterm,
                                           trim(orchestrate_curtyp) AS curtyp,
-                                          orchestrate_cbal  AS cbal,
-                                          orchestrate_orgbal AS orgbal,
-                                          orchestrate_accint AS accint,
-                                          l_cdnum AS cdnum,
-                                          orchestrate_penamt AS penamt,
-                                          orchestrate_hold AS hold,
+                                          a.cbal  AS cbal,
+                                          a.orgbal AS orgbal,
+                                          a.accint AS accint,
+                                          a.cdnum AS cdnum,
+                                          a.penamt AS penamt,
+                                          a.hold AS hold,
                                           TO_DATE (orchestrate_issdt, 'yyyyddd') AS issdt,
                                           TO_DATE (CASE WHEN orchestrate_matdt =0 THEN NULL
                                           ELSE orchestrate_matdt
@@ -1338,19 +1862,19 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNMAST (dm_operation_type    , orchestrate_bef
                                           TRIM (orchestrate_renew) renew,
                                           orchestrate_dactn AS dactn,
                                           orchestrate_rate AS rate,
-                                          orchestrate_wdrwh AS wdrwh
+                                          a.wdrwh AS wdrwh
                                    FROM   (SELECT
                                           l_acc_no AS acctno,
                                           (case when length(orchestrate_brn) <= 2 then LPAD (orchestrate_brn, 3, '0') else TO_CHAR(orchestrate_brn) end) AS brn,
                                           orchestrate_cifno AS cifno,
                                           orchestrate_cdterm AS cdterm,
                                           trim(orchestrate_curtyp) AS curtyp,
-                                          orchestrate_cbal AS cbal,
+                                          nvl(c.cbal, orchestrate_cbal) AS cbal,
                                           orchestrate_orgbal AS orgbal,
-                                          orchestrate_accint AS accint,
-                                          l_cdnum AS cdnum,
-                                          orchestrate_penamt AS penamt,
-                                          orchestrate_hold AS hold,
+                                          nvl(c.accint, orchestrate_accint)  AS accint,
+                                          nvl(c.cdnum, l_cdnum) AS cdnum,
+                                          nvl(c.penamt, orchestrate_penamt) AS penamt,
+                                          nvl(c.hold, orchestrate_hold) AS hold,
                                           TO_DATE (orchestrate_issdt, 'yyyyddd') AS issdt,
                                           TO_DATE (CASE WHEN orchestrate_matdt =0 THEN NULL
                                           ELSE orchestrate_matdt
@@ -1361,8 +1885,11 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNMAST (dm_operation_type    , orchestrate_bef
                                           TRIM (orchestrate_renew) renew,
                                           orchestrate_dactn AS dactn,
                                           orchestrate_rate AS rate,
-                                          orchestrate_wdrwh AS wdrwh
-                                   FROM   DUAL)a, sync_cdc_cdmemo b
+                                          nvl(c.wdrwh, orchestrate_wdrwh)AS wdrwh
+                                   FROM   DUAL a
+                                    left join RAWSTAGE.si_dat_cdmemo@RAWSTAGE_PRO_CORE c
+                                    on c.acctno = orchestrate_acctno
+                                  )a, sync_cdc_cdmemo b
                                   WHERE  orchestrate_acctno <> 0
                                           AND TRIM (orchestrate_status) IS NOT NULL
                                            AND orchestrate_status <> 2 AND orchestrate_status <> 0
@@ -1777,7 +2304,7 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNTNEW (
                 MERGE INTO bk_account_info c
                  USING (SELECT 
                       (case when length(orchestrate_brn) <= 2 then LPAD (orchestrate_brn, 3, '0') else TO_CHAR(orchestrate_brn) end) AS brn,
-                               orchestrate_accint AS accint,
+                               nvl(b.accint, orchestrate_accint) AS accint,
                                orchestrate_type AS TYPE,
                                orchestrate_cifno AS cifno,
                                TRIM (orchestrate_lnnum) AS lnnum,
@@ -1785,7 +2312,7 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNTNEW (
                                orchestrate_purcod AS purcod,
                                orchestrate_curtyp AS curtyp,
                                orchestrate_orgamt AS orgamt,
-                               orchestrate_cbal AS cbal,
+                               nvl(b.cbal, orchestrate_cbal) AS cbal,
                                orchestrate_ysobal AS ysobal,
                                orchestrate_billco AS billco,
                                orchestrate_term AS term,
@@ -1796,19 +2323,19 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNTNEW (
                                    AS fulldt,
                                l_status AS status,
                                orchestrate_odind AS odind,
-                               orchestrate_bilprn AS bilprn,
-                               orchestrate_bilint AS bilint,
-                               orchestrate_billc AS billc,
+                               nvl(b.bilprn, orchestrate_bilprn) AS bilprn,
+                               nvl(b.bilint, orchestrate_bilint) AS bilint,
+                               nvl(b.billc, orchestrate_billc) AS billc,
                                orchestrate_bilesc AS bilesc,
                                orchestrate_biloc AS biloc,
                                orchestrate_bilmc AS bilmc,
                                orchestrate_pmtamt AS pmtamt,
                                orchestrate_fnlpmt AS fnlpmt,
-                               orchestrate_drlimt AS drlimt,
-                               orchestrate_hold AS hold,
+                               nvl(b.drlimt, orchestrate_drlimt) AS drlimt,
+                               nvl(b.hold, orchestrate_hold) AS hold,
                                orchestrate_accmlc AS accmlc,
-                               orchestrate_comacc AS comacc,
-                               orchestrate_othchg AS othchg,
+                               nvl(b.comacc, orchestrate_comacc) AS comacc,
+                               nvl(b.othchg, orchestrate_othchg) AS othchg,
                                TRIM (orchestrate_acname) acname,
                                TRIM (orchestrate_type) product_type,
                                DECODE(orchestrate_matdt,0,null,TO_DATE(orchestrate_matdt,'YYYYDDD')) AS matdt,--haons20142412
@@ -1823,6 +2350,8 @@ CSPKS_CDC_T24_UTIL.PR_T24_CDD_LOG_LNTNEW (
                                orchestrate_rate AS rate,
                                orchestrate_tmcode AS tmcode
                           FROM DUAL
+                          left join RAWSTAGE.si_dat_lnmemo@RAWSTAGE_PRO_CORE b
+                          on b.acctno = orchestrate_acctno
                           ) a
                     ON (a.acctno = c.acct_no)
                       /*  Quandh3 2023 T24 : ko xu ly update voi truong hop TNEW    
@@ -4229,5 +4758,4 @@ BEGIN
         ptrace => ( logrow.log4trace = 'Y' ) );*\
 END;
 */
-
 /

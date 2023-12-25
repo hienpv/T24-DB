@@ -76,7 +76,7 @@ begin
 
     INSERT INTO twtb_si_dat_tmtran(tmstack, tmtxstat, tmoffset, tmmemo, tmlatloc, tmibttrn, tmeqvtrn, tmsumtrn, tmtlxmne, tmtellid, tmtxseq, tmusr2, tmjsq2, tmtxcd, tmsupid, tmentdat, tmentdt7, tmeffdat, tmeffdt7, tmsrvbrn, tmactbrn, tmapptype, tmhosttxcd, tmtiment, tmtxsrc, tmorgamt, tmorgcur, tmtxamt, tmglcur, tmbrneqv, tmbrncur, tmbnkeqv, tmbnkcur, tmacctno, tmglcost, tmglprod, tmchkp, tmserial, tmroute, tmdorc, tmhafft, tmeftnum, tmefttyp, tmbopcod, tmsrcfnd, tmchgtyp, tmlnrev, tmafftrel, tmsrunit, tmsrval, tmsrcntr, tmdesc, tmrefnum, tmexcode, tmtpneft, tm3rdptyn, tmnbrl, tmeftcod, tmcont, tmvaldat, tmvaldt7, tmnchk, tmglexch, tmtxflg1, tmtxnrate, tmsseq, tmbkdat6, tmbkdat7, tmefth, tmresv01, tmresv02, tmresv03, tmresv04, tmresv05, tmtktn, tmresv06, tmresv07)
     SELECT tmstack, tmtxstat, tmoffset, tmmemo, tmlatloc, tmibttrn, tmeqvtrn, tmsumtrn, tmtlxmne, tmtellid, tmtxseq, tmusr2, tmjsq2, tmtxcd, tmsupid, tmentdat, tmentdt7, tmeffdat, tmeffdt7, tmsrvbrn, tmactbrn, tmapptype, tmhosttxcd, tmtiment, tmtxsrc, tmorgamt, tmorgcur, tmtxamt, tmglcur, tmbrneqv, tmbrncur, tmbnkeqv, tmbnkcur, tmacctno, tmglcost, tmglprod, tmchkp, tmserial, tmroute, tmdorc, tmhafft, tmeftnum, tmefttyp, tmbopcod, tmsrcfnd, tmchgtyp, tmlnrev, tmafftrel, tmsrunit, tmsrval, tmsrcntr, tmdesc, tmrefnum, tmexcode, tmtpneft, tm3rdptyn, tmnbrl, tmeftcod, tmcont, tmvaldat, tmvaldt7, tmnchk, tmglexch, tmtxflg1, tmtxnrate, tmsseq, tmbkdat6, tmbkdat7, tmefth, tmresv01, tmresv02, tmresv03, tmresv04, tmresv05, tmtktn, tmresv06, tmresv07
-    FROM rawstage.si_dat_tmtran@rawstage_pro
+    FROM rawstage.si_dat_tmtran@rawstage_pro_core
         WHERE tmapptype <> 'G'
         AND tmentdt7 = p_etl_date--2016145
         and tmtiment >= p_from_time--113925

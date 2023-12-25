@@ -47,7 +47,7 @@ IS
         l_max_count   := 0;
 
         DBMS_STATS.gather_table_stats (
-				ownname    => 'T24IBS',
+				ownname    => 'IBS',
 				tabname    => 'sync_etl_lnmast'
 		     	);
 
@@ -468,7 +468,7 @@ IS
         l_max_count   := 0;
         -- comment 16/10/2018
         DBMS_STATS.gather_table_stats (
-				ownname    => 'T24IBS',
+				ownname    => 'IBS',
 				tabname    => 'sync_etl_ddmast'
 		     	);
         ---
@@ -783,7 +783,7 @@ IS
 
          -- comment 16/10/2018 bc_related_account
 		  	DBMS_STATS.gather_table_stats (
-				ownname    => 'T24IBS',
+				ownname    => 'IBS',
 				tabname    => 'sync_etl_cdmast'
             ); 
 --            DBMS_STATS.gather_table_stats (
@@ -1341,18 +1341,18 @@ PROCEDURE pr_cdmemo_cdc_override
               WHERE bai.cif_no IN (
                                    SELECT cif_no FROM bb_corp_info));
 
-
-       EXECUTE IMMEDIATE ' TRUNCATE TABLE SYNC_ETL_TMPBMAST';
-       INSERT INTO sync_etl_tmpbmast
-        SELECT
-                a.tmbmacct,
-                a.tmbmrser
-
-          FROM   svdatpv51.tmpbmast@dblink_data a
-          WHERE  LPAD(a.tmbmacct,
-                      14,
-                      '0') IN (SELECT acct_no
-                               FROM   sync_account_info);
+--Comment 20/12/2023: khong co mapping
+       -- EXECUTE IMMEDIATE ' TRUNCATE TABLE SYNC_ETL_TMPBMAST';
+       -- INSERT INTO sync_etl_tmpbmast
+       --  SELECT
+       --          a.tmbmacct,
+       --          a.tmbmrser
+-- 
+       --    FROM   svdatpv51.tmpbmast@dblink_data a
+       --    WHERE  LPAD(a.tmbmacct,
+       --                14,
+       --                '0') IN (SELECT acct_no
+       --                         FROM   sync_account_info);
         Commit;
         -- comment 16/10/2018 
 --        DBMS_STATS.gather_table_stats (

@@ -118,7 +118,7 @@ IS
 
        -- comment gather 12/10/2018  
       DBMS_STATS.gather_table_stats (
-            ownname    => 'T24IBS',  -- IBS 
+            ownname    => 'IBS',  -- IBS 
             tabname    => 'sync_bk_account_history',
             cascade    => TRUE
        );
@@ -246,7 +246,7 @@ IS
         COMMIT;
       -- comment gather 12/10/2018  
       DBMS_STATS.gather_table_stats (
-            ownname    => 'T24IBS', -- IBS
+            ownname    => 'IBS', -- IBS
             tabname    => 'sync_bk_account_history',
             cascade    => TRUE
        ); 
@@ -767,7 +767,7 @@ IS
                TRIM(a.chuser),
                a.chtime
               FROM   --staging.si_his_cdhist@staging_pro a,
-                    svhispv51.cdhist@dblink_data a, --20160426 QuanPD changed STAGING->CORE
+                    hstaging.si_his_cdhist@HSTAGING_PRO_CORE a, --20160426 QuanPD changed STAGING->CORE
                     sync_account_info b
               WHERE  a.chdorc IN ('D','C')
               AND    a.chafft in ('B','C')
@@ -924,12 +924,12 @@ IS
 
         -- comment  10/16/2018
         DBMS_STATS.gather_table_stats (
-                ownname    => 'T24IBS',  -- IBS
+                ownname    => 'IBS',  -- IBS
                 tabname    => 'sync_etl_cdhist'
                  );
 
         DBMS_STATS.gather_table_stats (
-                ownname    => 'T24IBS', -- IBS
+                ownname    => 'IBS', -- IBS
                 tabname    => 'sync_etl_tranmap'
                  );
         --
@@ -1047,7 +1047,7 @@ IS
         g_max_time        := 0;
         -- comment 16/10/2018
         DBMS_STATS.gather_table_stats (
-                ownname    => 'T24IBS', -- IBS
+                ownname    => 'IBS', -- IBS
                 tabname    => 'sync_etl_ddhist'
             ); 
         --#20150415 Loctx add (giu nguyen source code goc)
@@ -1173,7 +1173,7 @@ IS
         g_max_time        := 0;
         -- comment 16/10/2018
         DBMS_STATS.gather_table_stats (
-                ownname    => 'T24IBS',  -- IBS
+                ownname    => 'IBS',  -- IBS
                 tabname    => 'sync_etl_lnhist'
                  );
         --#20150415 Loctx add (giu nguyen source code goc)
@@ -1555,13 +1555,13 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
 
           -- gather static 11/10/2018
         DBMS_STATS.gather_table_stats (
-            ownname    => 'T24IBS',  -- IBS
+            ownname    => 'IBS',  -- IBS
             tabname    => 'twtb_account_history_benifit',
             cascade    => TRUE
               );
 
        DBMS_STATS.gather_table_stats (
-            ownname    => 'T24IBS', -- IBS
+            ownname    => 'IBS', -- IBS
             tabname    => 'sync_cdc_tmtran',
             cascade    => TRUE
        );
@@ -1622,7 +1622,7 @@ PROCEDURE pr_ddhist_new_cif_sync(p_etl_date  IN VARCHAR2)
 
         -- gather comment 16/10/2018
          DBMS_STATS.gather_table_stats (
-            ownname    => 'T24IBS', -- IBS
+            ownname    => 'IBS', -- IBS
             tabname    => 'twtb_account_history',
             cascade    => TRUE
        );

@@ -89,7 +89,7 @@ BEGIN
              TRIM(a.truser),
              TRIM(a.auxtrc)
             --'DD' || SEQ_CORE_SN_DD.NEXTVAL
-              FROM STAGING.SI_HIS_DDHIST@STAGING_PRO_CORE a
+              FROM HSTAGING.SI_HIS_DDHIST@HSTAGING_PRO_CORE a
 
              WHERE a.trdate <= (v_checkpoint_date)
                AND a.dorc IN ('D', 'C')
