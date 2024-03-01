@@ -2,7 +2,7 @@
 --  DDL for Package SYS_DATA_IB
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."SYS_DATA_IB" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "SYS_DATA_IB" is
 
   -- Author  : ADMINISTRATOR
   -- Created : 5/31/2016 8:39:37 AM

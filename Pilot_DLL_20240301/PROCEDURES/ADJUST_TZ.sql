@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."ADJUST_TZ" 
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "ADJUST_TZ" 
  as
 
 begin

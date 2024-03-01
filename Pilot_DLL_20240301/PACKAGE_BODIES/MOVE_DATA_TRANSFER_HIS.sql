@@ -2,7 +2,7 @@
 --  DDL for Package Body MOVE_DATA_TRANSFER_HIS
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."MOVE_DATA_TRANSFER_HIS" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MOVE_DATA_TRANSFER_HIS" is
 
   PROCEDURE moveDataToProd is
     scn_time        varchar2(100);

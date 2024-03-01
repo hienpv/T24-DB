@@ -2,7 +2,7 @@
 --  DDL for Package Body SYNC_HANDLE_CDTNEW
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."SYNC_HANDLE_CDTNEW" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "SYNC_HANDLE_CDTNEW" 
 IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

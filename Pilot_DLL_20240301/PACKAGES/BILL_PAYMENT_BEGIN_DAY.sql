@@ -2,7 +2,7 @@
 --  DDL for Package BILL_PAYMENT_BEGIN_DAY
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."BILL_PAYMENT_BEGIN_DAY" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "BILL_PAYMENT_BEGIN_DAY" is
 
   -- Author  : ADMINISTRATOR
   -- Created : 5/31/2016 8:39:37 AM

@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PRC_UPDATE_EBANK_STATUS" 
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PRC_UPDATE_EBANK_STATUS" 
 /* Formatted on 30-Dec-2011 17:20:22 (QP5 v5.126) */
 IS
 BEGIN

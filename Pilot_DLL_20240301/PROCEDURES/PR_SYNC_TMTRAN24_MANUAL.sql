@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PR_SYNC_TMTRAN24_MANUAL" (p_etl_date NUMBER, p_from_time NUMBER, p_to_time NUMBER)
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PR_SYNC_TMTRAN24_MANUAL" (p_etl_date NUMBER, p_from_time NUMBER, p_to_time NUMBER)
 is
     cursor  c_txn
         is

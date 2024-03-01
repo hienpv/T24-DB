@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_TRANSACTION_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_TRANSACTION_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_TRANSACTION_SYNC" 
 IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

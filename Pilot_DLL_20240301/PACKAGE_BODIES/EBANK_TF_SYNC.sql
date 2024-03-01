@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_TF_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_TF_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_TF_SYNC" IS
   v_start_date DATE;
 
   PROCEDURE proc_tf_info_sync IS

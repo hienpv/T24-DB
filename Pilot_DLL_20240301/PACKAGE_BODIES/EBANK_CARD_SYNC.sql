@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_CARD_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_CARD_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_CARD_SYNC" 
 /* Formatted on 20-Jun-2011 16:17:37 (QP5 v5.126) */
  IS
 

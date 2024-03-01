@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_CIF_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."EBANK_CIF_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_CIF_SYNC" IS
   PROCEDURE proc_mobile_sync;
   PROCEDURE proc_email_sync;
   PROCEDURE proc_telephone_sync;

@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_CLEAR_TF_SML_TRANSFER
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_CLEAR_TF_SML_TRANSFER" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_CLEAR_TF_SML_TRANSFER" 
   IS
     PROCEDURE pr_delete_tf_sml_transfer
     IS

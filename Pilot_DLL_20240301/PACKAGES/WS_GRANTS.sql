@@ -2,7 +2,7 @@
 --  DDL for Package WS_GRANTS
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."WS_GRANTS" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "WS_GRANTS" is
 
 rcOK                constant dtype. Counter  %Type := 0;
 rcProhibited        constant dtype. Counter  %Type := 2;

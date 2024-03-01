@@ -2,7 +2,7 @@
 --  DDL for Package GW_PK_VCB_REPORT
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."GW_PK_VCB_REPORT" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "GW_PK_VCB_REPORT" IS
   TYPE m_tblField_type IS TABLE OF Varchar2(2000) INDEX BY Varchar2(20);
 
 

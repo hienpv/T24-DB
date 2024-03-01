@@ -2,7 +2,7 @@
 --  DDL for Function FIND_IN_SET
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE FUNCTION "IBS"."FIND_IN_SET" (
+  CREATE OR REPLACE EDITIONABLE FUNCTION "FIND_IN_SET" (
   i_value  IN  VARCHAR2,
   i_list   IN  VARCHAR2,
   i_delim  IN  VARCHAR2 DEFAULT ','

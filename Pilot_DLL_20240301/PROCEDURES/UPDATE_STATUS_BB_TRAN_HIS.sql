@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."UPDATE_STATUS_BB_TRAN_HIS" is
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "UPDATE_STATUS_BB_TRAN_HIS" is
 err varchar2(900);
 begin
 

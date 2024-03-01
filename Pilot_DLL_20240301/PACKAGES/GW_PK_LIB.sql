@@ -2,7 +2,7 @@
 --  DDL for Package GW_PK_LIB
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."GW_PK_LIB" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "GW_PK_LIB" is
    -- Public type declarations
   TYPE m_tblField_type IS TABLE OF Varchar2(2000) INDEX BY Varchar2(20);
 

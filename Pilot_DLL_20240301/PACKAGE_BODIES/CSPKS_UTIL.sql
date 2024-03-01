@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKS_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKS_UTIL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKS_UTIL" 
 /* Formatted on 29-Aug-2012 11:00:28 (QP5 v5.126) */
 IS
     --

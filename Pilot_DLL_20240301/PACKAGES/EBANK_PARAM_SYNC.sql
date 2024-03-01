@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_PARAM_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."EBANK_PARAM_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_PARAM_SYNC" IS
 
   PROCEDURE proc_fx_rate_param_sync;
 

@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_BALANCE_PERIOD_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKG_BALANCE_PERIOD_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_BALANCE_PERIOD_SYNC" 
   IS
 --
 -- To modify this template, edit file PKGSPEC.TXT in TEMPLATE

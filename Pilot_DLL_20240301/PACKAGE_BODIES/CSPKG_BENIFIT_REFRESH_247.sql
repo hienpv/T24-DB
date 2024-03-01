@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_BENIFIT_REFRESH_247
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_BENIFIT_REFRESH_247" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_BENIFIT_REFRESH_247" AS
 
     PROCEDURE pr_benifit_internal_txn
     IS

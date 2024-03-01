@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_ACCOUNT_ETL_SYNC_DEV_MDB
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_ACCOUNT_ETL_SYNC_DEV_MDB" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_ACCOUNT_ETL_SYNC_DEV_MDB" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM

@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_DWH_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_DWH_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_DWH_SYNC" 
  IS
 
   PROCEDURE proc_ddft_transaction  IS -- chay 1 lan trong ngay, lich su truoc hien tai 1 ngay.

@@ -2,7 +2,7 @@
 --  DDL for Package Body PKG_MSB_BC_REG_API
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."PKG_MSB_BC_REG_API" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "PKG_MSB_BC_REG_API" 
 /* Formatted on 14-Sep-2017 14:21:39 (QP5 v5.126) */
 IS
     FUNCTION FN_GET_PARAMETER_MSG(pv_msg IN CLOB, pv_parameter IN VARCHAR2, pv_path IN VARCHAR2) RETURN VARCHAR2

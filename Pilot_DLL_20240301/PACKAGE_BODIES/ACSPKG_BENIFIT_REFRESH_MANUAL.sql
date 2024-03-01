@@ -2,7 +2,7 @@
 --  DDL for Package Body ACSPKG_BENIFIT_REFRESH_MANUAL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."ACSPKG_BENIFIT_REFRESH_MANUAL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "ACSPKG_BENIFIT_REFRESH_MANUAL" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

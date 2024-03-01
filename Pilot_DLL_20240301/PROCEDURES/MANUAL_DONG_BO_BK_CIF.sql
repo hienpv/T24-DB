@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."MANUAL_DONG_BO_BK_CIF" 
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "MANUAL_DONG_BO_BK_CIF" 
 (
   PARAM1 IN VARCHAR2 
 ) AS 

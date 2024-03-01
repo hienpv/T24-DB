@@ -2,7 +2,7 @@
 --  DDL for Package SYNC_WAY4_DTYPE
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."SYNC_WAY4_DTYPE" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "SYNC_WAY4_DTYPE" is
 
 /**
 * Project:         W4Kernel

@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_TRANSACTION_ETL_SYNC_2
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_TRANSACTION_ETL_SYNC_2" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_TRANSACTION_ETL_SYNC_2" 
 IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

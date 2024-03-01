@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_CIF_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_CIF_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_CIF_SYNC" 
 IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

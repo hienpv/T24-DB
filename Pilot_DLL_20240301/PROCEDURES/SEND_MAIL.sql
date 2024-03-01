@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."SEND_MAIL" (
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "SEND_MAIL" (
     msg_from       VARCHAR2 := 'oracle',
     msg_to         VARCHAR2,
     msg_subject    VARCHAR2 := 'E-Mail message from your database',

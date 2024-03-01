@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_ACCOUNT_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."EBANK_ACCOUNT_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_ACCOUNT_SYNC" IS
 
   PROCEDURE proc_ddmast_sync;
 

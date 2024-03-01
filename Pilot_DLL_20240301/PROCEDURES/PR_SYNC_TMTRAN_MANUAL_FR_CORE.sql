@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PR_SYNC_TMTRAN_MANUAL_FR_CORE" (p_etl_date NUMBER, p_from_time NUMBER, p_to_time NUMBER)
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PR_SYNC_TMTRAN_MANUAL_FR_CORE" (p_etl_date NUMBER, p_from_time NUMBER, p_to_time NUMBER)
 is
 
 --20200413 Loctx add

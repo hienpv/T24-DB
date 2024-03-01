@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PR_TMTRAN_SYNC_02022016" (dm_operation_type in CHAR,
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PR_TMTRAN_SYNC_02022016" (dm_operation_type in CHAR,
                                 orchestrate_tmtxcd in VARCHAR,
                                 orchestrate_tmresv07 in VARCHAR,
                                 orchestrate_tmdorc in CHAR,

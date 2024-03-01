@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_TRANSACTION_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."EBANK_TRANSACTION_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_TRANSACTION_SYNC" IS
 
   PROCEDURE proc_tmtran_onday_sync;
 

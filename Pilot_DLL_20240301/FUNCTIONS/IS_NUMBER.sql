@@ -2,7 +2,7 @@
 --  DDL for Function IS_NUMBER
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE FUNCTION "IBS"."IS_NUMBER" (p_string IN VARCHAR2)
+  CREATE OR REPLACE EDITIONABLE FUNCTION "IS_NUMBER" (p_string IN VARCHAR2)
   RETURN INT
 IS
   v_num NUMBER;

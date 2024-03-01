@@ -3,21 +3,26 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PROC_UPDATE_FD_PRODUCT" is
-
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PROC_UPDATE_FD_PRODUCT" is 
   err varchar2(2000);
   cursor curMSG_OUT is
-    select ptype,
+    select trim(ptype) product_code,
            pdesc,
            psdsc,
            pgroup,
            PYRCOD,
            PRATE,
-           f.JRCRAT Pratem,
-           PMINAM
-      from RAWSTAGE.SI_PAR_CDPAR2@RAWSTAGE_PRO_CORE d
-     inner join RAWSTAGE.si_par_ssrate@RAWSTAGE_PRO_CORE f
-        on CASE WHEN PRNRT9 =0 THEN 
+           f.JRCRAT as rate,
+           PMINAM,
+           f.JRRATN,
+           trim(f.JRRTBK) as term
+      -- from SVPARPV51.cdpar2@DBLINK_DATA d
+      -- inner join SVPARPV51.ssrate@DBLINK_DATA f
+       from RAWSTAGE.SI_PAR_CDPAR2@RAWSTAGE_PRO_CORE d
+       inner join RAWSTAGE.SI_PAR_SSRATE@RAWSTAGE_PRO_CORE f
+        on d.PRATEN = f.JRREFR
+           and trim(d.pcurty) = trim(f.JRRCUR)
+           and CASE WHEN PRNRT9 =0 THEN 
                 CASE WHEN PRNRT8 =0 THEN 
                     CASE WHEN PRNRT7 =0 THEN 
                         CASE WHEN PRNRT6 =0 THEN 
@@ -37,32 +42,30 @@ set define off;
             ELSE 
                 PRNRT9 
             END = f.JRRATN
-       and d.pcurty = f.JRRCUR
      where PCURTY = 'VND'
-       and trim(ptype) in (select product_code from bk_receipt_product);
+       and trim(ptype) in (select core_product_code from bk_receipt_product);
   v_MSG_OUT curMSG_OUT%rowtype;
 BEGIN
-
+ 
   OPEN curMSG_OUT;
   LOOP
-    -- L?y t?ng dong d? li?u c?a cursor d? x? ly
+    -- Lay tong dong du lieu ca cursor de xu ly
     Begin
-      FETCH curMSG_OUT
-        INTO v_MSG_OUT;
-
-      -- Thoat kh?i l?nh l?p n?u d? duy?t h?t t?t c? d? li?u
+      FETCH curMSG_OUT INTO v_MSG_OUT;
       EXIT WHEN curMSG_OUT %notfound;
-      update bk_receipt_product pr
-         set pr.rate = v_MSG_OUT.Pratem, pr.update_time = sysdate
-       where trim(pr.product_code) = trim(v_MSG_OUT.Ptype);
+      -- update data bk_receipt_product
+	  update bk_receipt_product pr
+         set pr.rate = v_MSG_OUT.rate, pr.update_time = sysdate
+       where pr.core_product_code = v_MSG_OUT.product_code 
+       and CONCAT(pr.TERM, pr.TERM_CODE) = v_MSG_OUT.term;
       commit;
     Exception
       when others then
         err := sqlerrm;
     end;
-
+ 
   END LOOP;
-
+ 
   CLOSE curMSG_OUT;
 end proc_update_fd_product;
 

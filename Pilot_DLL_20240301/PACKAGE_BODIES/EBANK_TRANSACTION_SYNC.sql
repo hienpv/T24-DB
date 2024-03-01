@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_TRANSACTION_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_TRANSACTION_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_TRANSACTION_SYNC" 
 /* Formatted on 12/16/2011 5:13:24 PM (QP5 v5.126) */
  IS
   v_start_date      DATE;

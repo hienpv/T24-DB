@@ -2,7 +2,7 @@
 --  DDL for Package Body PK_PROCESS_CIF
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."PK_PROCESS_CIF" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "PK_PROCESS_CIF" AS
 
   PROCEDURE SYNC_DATA_BK_CIF AS
   BEGIN
@@ -20,7 +20,7 @@
           ) a 
           where a.cif_no not in (select cif_no from bk_cif)
         ) c
-        left join (select * from STAGING.SI_DAT_CFMAST@STAGING_PRO where trim(CFINDI)='N') d on to_number(c.cif_no) = trim(d.CFCIFN)
+        left join (select * from STAGING.SI_DAT_CFMAST@STAGING_PRO_CORE where trim(CFINDI)='N') d on to_number(c.cif_no) = trim(d.CFCIFN)
         where c.cif_no is not null and d.CFCIFN is not null and rownum <= 1000
     )
     LOOP

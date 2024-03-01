@@ -2,7 +2,7 @@
 --  DDL for Package Body SYNC_WAY4_DATA_DOC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."SYNC_WAY4_DATA_DOC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "SYNC_WAY4_DATA_DOC" IS
 
   PROCEDURE proc_doc_history_trans_sync_2 IS
 

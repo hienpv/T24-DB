@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_DATA_LATER_PROCESS
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_DATA_LATER_PROCESS" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_DATA_LATER_PROCESS" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : ODS SYSTEM

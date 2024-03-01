@@ -2,7 +2,7 @@
 --  DDL for Package CSPKS_ETL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKS_ETL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKS_ETL" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module: FTP SYSTEM

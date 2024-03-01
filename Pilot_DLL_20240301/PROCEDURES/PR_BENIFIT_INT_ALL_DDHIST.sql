@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PR_BENIFIT_INT_ALL_DDHIST" (p_date7 NUMBER)
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PR_BENIFIT_INT_ALL_DDHIST" (p_date7 NUMBER)
  as
 
     CURSOR c_txn (p_cur_date7 NUMBER, p_cur_date_dt DATE)

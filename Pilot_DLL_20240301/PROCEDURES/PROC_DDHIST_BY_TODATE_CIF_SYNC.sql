@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PROC_DDHIST_BY_TODATE_CIF_SYNC" (p_date  DATE,
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PROC_DDHIST_BY_TODATE_CIF_SYNC" (p_date  DATE,
                                                          pCif_no varchar2) IS
   v_count           NUMBER;
   v_start_date      DATE;

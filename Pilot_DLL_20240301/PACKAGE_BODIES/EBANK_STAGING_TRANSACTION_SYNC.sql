@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_STAGING_TRANSACTION_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_STAGING_TRANSACTION_SYNC" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_STAGING_TRANSACTION_SYNC" is
 
   PROCEDURE proc_run_sync_vipCop IS
     synDate   date;

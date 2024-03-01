@@ -2,7 +2,7 @@
 --  DDL for Package CSPKS_CDC_T24_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKS_CDC_T24_UTIL" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKS_CDC_T24_UTIL" AS 
 
   PROCEDURE PR_T24_CDD_LOG_CDMAST (
                               dm_operation_type in CHAR,

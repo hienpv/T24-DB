@@ -2,7 +2,7 @@
 --  DDL for Package Body PK_UPDATE_STATUS_BOND
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."PK_UPDATE_STATUS_BOND" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "PK_UPDATE_STATUS_BOND" AS
 
   PROCEDURE updateStatusBond AS
   countBond NUMBER;

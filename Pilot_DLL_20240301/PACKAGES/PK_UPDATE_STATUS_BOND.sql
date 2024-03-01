@@ -2,7 +2,7 @@
 --  DDL for Package PK_UPDATE_STATUS_BOND
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."PK_UPDATE_STATUS_BOND" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "PK_UPDATE_STATUS_BOND" AS
 
     PROCEDURE updateStatusBond;    
     PROCEDURE revertBondLostData;

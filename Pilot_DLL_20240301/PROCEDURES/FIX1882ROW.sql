@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."FIX1882ROW" (own VARCHAR2,
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "FIX1882ROW" (own VARCHAR2,
                                          tn VARCHAR2,
                                          cn VARCHAR2,
                                           r ROWID) as

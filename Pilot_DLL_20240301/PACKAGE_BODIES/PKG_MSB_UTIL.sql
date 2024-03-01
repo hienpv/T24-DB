@@ -2,7 +2,7 @@
 --  DDL for Package Body PKG_MSB_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."PKG_MSB_UTIL" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "PKG_MSB_UTIL" IS
 
 
 FUNCTION multi_replace_string(pString IN VARCHAR2, pReplacePattern IN VARCHAR2) RETURN VARCHAR2 IS

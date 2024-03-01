@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_ACCOUNT_SYNC_MANUAL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKG_ACCOUNT_SYNC_MANUAL" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_ACCOUNT_SYNC_MANUAL" is
 
   -- Author  : DUANNP2
   -- Created : 5/22/2023 1:42:37 PM

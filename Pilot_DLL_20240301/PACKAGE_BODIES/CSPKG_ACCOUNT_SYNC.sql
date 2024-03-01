@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_ACCOUNT_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_ACCOUNT_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_ACCOUNT_SYNC" 
 /* Formatted on 09-Oct-2014 12:35:16 (QP5 v5.160) */
 IS
     /*----------------------------------------------------------------------------------------------------

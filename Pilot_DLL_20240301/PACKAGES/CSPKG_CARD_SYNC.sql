@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_CARD_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKG_CARD_SYNC" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_CARD_SYNC" 
   IS
 /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

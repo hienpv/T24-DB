@@ -2,7 +2,7 @@
 --  DDL for Package Body VHNHDT
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."VHNHDT" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "VHNHDT" AS
    
 PROCEDURE ON_DAYMODE IS 
 BEGIN 

@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_PARAM_SYNC
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_PARAM_SYNC" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_PARAM_SYNC" IS
   v_start_date DATE;
 
   g_error_level NUMBER;

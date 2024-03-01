@@ -2,7 +2,7 @@
 --  DDL for Package Body BILL_RESET_LIMIT_RECHARGE
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."BILL_RESET_LIMIT_RECHARGE" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "BILL_RESET_LIMIT_RECHARGE" is
 
 
   PROCEDURE resetLimitRecharge is

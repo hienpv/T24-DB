@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_ACCOUNT_SYNC_TEST_PILOT
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKG_ACCOUNT_SYNC_TEST_PILOT" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_ACCOUNT_SYNC_TEST_PILOT" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM

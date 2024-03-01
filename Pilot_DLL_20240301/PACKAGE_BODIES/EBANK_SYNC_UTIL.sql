@@ -2,7 +2,7 @@
 --  DDL for Package Body EBANK_SYNC_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."EBANK_SYNC_UTIL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "EBANK_SYNC_UTIL" 
 /* Formatted on 3-Jun-2011 9:23:23 (QP5 v5.126) */
  IS
   /*ADVICE(4): Unreferenced variable [553] */

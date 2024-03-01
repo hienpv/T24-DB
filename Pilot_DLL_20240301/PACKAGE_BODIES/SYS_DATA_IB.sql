@@ -2,7 +2,7 @@
 --  DDL for Package Body SYS_DATA_IB
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."SYS_DATA_IB" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "SYS_DATA_IB" is
 
   PROCEDURE SYSMAP is
   

@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKG_ACCOUNT_SYNC_247
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKG_ACCOUNT_SYNC_247" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKG_ACCOUNT_SYNC_247" AS
 
 PROCEDURE pr_update_cif_change (p_old_cif NUMBER, p_new_cif NUMBER, p_acct_no VARCHAR2)
     IS

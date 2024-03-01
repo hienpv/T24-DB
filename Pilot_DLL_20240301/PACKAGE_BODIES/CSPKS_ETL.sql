@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKS_ETL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKS_ETL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKS_ETL" 
 IS
     pkgctx   plog.log_ctx;
     logrow   tlogdebug%ROWTYPE;

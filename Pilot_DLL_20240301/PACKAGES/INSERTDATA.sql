@@ -2,7 +2,7 @@
 --  DDL for Package INSERTDATA
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."INSERTDATA" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "INSERTDATA" 
   IS
 --
 -- To modify this template, edit file PKGSPEC.TXT in TEMPLATE

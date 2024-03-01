@@ -2,7 +2,7 @@
 --  DDL for Package Body JOB_REMOVE_EKYC_RETRY
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."JOB_REMOVE_EKYC_RETRY" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "JOB_REMOVE_EKYC_RETRY" AS
 
   PROCEDURE removeEkycRegisterHistoryRetry AS
     BEGIN

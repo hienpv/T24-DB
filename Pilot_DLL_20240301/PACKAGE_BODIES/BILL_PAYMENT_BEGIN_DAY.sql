@@ -2,7 +2,7 @@
 --  DDL for Package Body BILL_PAYMENT_BEGIN_DAY
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."BILL_PAYMENT_BEGIN_DAY" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "BILL_PAYMENT_BEGIN_DAY" is
 
        
   PROCEDURE scanBillPaymentBeginDay is

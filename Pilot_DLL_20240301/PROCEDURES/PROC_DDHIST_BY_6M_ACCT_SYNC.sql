@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PROC_DDHIST_BY_6M_ACCT_SYNC" (p_acct_no VARCHAR2) is
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PROC_DDHIST_BY_6M_ACCT_SYNC" (p_acct_no VARCHAR2) is
   v_count      NUMBER;
   p_date       date;
   v_start_date DATE;

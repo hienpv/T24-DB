@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."UAT_MANUAL_MERGE_ODTIER" 
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "UAT_MANUAL_MERGE_ODTIER" 
 IS
 BEGIN
     delete from si_dat_odtier;

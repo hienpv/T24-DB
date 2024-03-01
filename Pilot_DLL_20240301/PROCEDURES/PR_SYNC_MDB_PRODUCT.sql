@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."PR_SYNC_MDB_PRODUCT" 
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "PR_SYNC_MDB_PRODUCT" 
 IS
 BEGIN
 

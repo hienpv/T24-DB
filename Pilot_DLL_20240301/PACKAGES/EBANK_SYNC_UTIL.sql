@@ -2,7 +2,7 @@
 --  DDL for Package EBANK_SYNC_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."EBANK_SYNC_UTIL" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "EBANK_SYNC_UTIL" IS
   PROCEDURE proc_sync_log
   (
     p_start_date IN DATE,

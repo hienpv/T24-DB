@@ -2,7 +2,7 @@
 --  DDL for Package Body GW_PK_VCB_REPORT
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."GW_PK_VCB_REPORT" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "GW_PK_VCB_REPORT" IS
   /* Ði?n in VCB
      Creator: Bùi H?ng Phuong
   */

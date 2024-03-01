@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_TRANSACTION_SYNC_247
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKG_TRANSACTION_SYNC_247" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_TRANSACTION_SYNC_247" AS
   /** author: QuangBD3
   **/
   PROCEDURE pr_tmtran_fail_later_process;

@@ -2,7 +2,7 @@
 --  DDL for Package PK_PROCESS_DATA
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."PK_PROCESS_DATA" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "PK_PROCESS_DATA" AS 
 
   /* TODO enter package declarations (types, exceptions, methods etc) here */ 
   PROCEDURE UPDATE_CUSTOMER_MOBILE_PAYMENT;

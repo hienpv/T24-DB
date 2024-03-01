@@ -2,7 +2,7 @@
 --  DDL for Package PKG_MSB_BC_REG_API
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."PKG_MSB_BC_REG_API" IS
+  CREATE OR REPLACE EDITIONABLE PACKAGE "PKG_MSB_BC_REG_API" IS
 TYPE UserInfoRecord IS RECORD (
      cifNo VARCHAR2(50),
      email VARCHAR2(50),

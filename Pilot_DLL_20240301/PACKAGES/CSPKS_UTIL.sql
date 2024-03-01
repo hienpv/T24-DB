@@ -2,7 +2,7 @@
 --  DDL for Package CSPKS_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKS_UTIL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKS_UTIL" 
 IS
 
       FUNCTION fn_get_seq (p_name              IN     VARCHAR2,

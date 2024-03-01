@@ -2,7 +2,7 @@
 --  DDL for Package CSPKG_BENIFIT_REFRESH
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKG_BENIFIT_REFRESH" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKG_BENIFIT_REFRESH" 
   IS
  /*----------------------------------------------------------------------------------------------------
      ** Module   : COMMODITY SYSTEM

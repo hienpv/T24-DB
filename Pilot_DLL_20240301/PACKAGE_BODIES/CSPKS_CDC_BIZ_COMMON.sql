@@ -2,7 +2,7 @@
 --  DDL for Package Body CSPKS_CDC_BIZ_COMMON
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "IBS"."CSPKS_CDC_BIZ_COMMON" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "CSPKS_CDC_BIZ_COMMON" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   :

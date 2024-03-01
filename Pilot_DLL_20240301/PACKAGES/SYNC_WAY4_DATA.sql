@@ -2,7 +2,7 @@
 --  DDL for Package SYNC_WAY4_DATA
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."SYNC_WAY4_DATA" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "SYNC_WAY4_DATA" is
   PROCEDURE proc_acnt_contract_sync;
   PROCEDURE proc_acnt_contract_sync_new;
   PROCEDURE proc_acnt_contract_sync_manual(p_contract in varchar2, v_msg out varchar2);

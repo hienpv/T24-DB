@@ -3,7 +3,7 @@
 --------------------------------------------------------
 set define off;
 
-  CREATE OR REPLACE EDITIONABLE PROCEDURE "IBS"."UPDATEBRANCH" is
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "UPDATEBRANCH" is
 
   Cursor vMSGOUT is
     Select * from branch IO;

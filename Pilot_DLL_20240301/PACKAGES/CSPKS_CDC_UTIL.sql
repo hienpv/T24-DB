@@ -2,7 +2,7 @@
 --  DDL for Package CSPKS_CDC_UTIL
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSPKS_CDC_UTIL" 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSPKS_CDC_UTIL" 
 IS
 /*----------------------------------------------------------------------------------------------------
  ** Module   : COMMODITY SYSTEM

@@ -2,7 +2,7 @@
 --  DDL for Package CSKPG_PILOT_MIGRATION
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "IBS"."CSKPG_PILOT_MIGRATION" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "CSKPG_PILOT_MIGRATION" AS 
 
   PROCEDURE cd_mast_migration;
   
